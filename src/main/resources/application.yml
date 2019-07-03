@@ -8,13 +8,22 @@ spring:
     url: jdbc:mysql://localhost:3306/test?useSSL=false&useUnicode=true&characterEncoding=utf8&characterSetResults=utf8
     username: root
     password: 123456
+  thymeleaf:
+    prefix: classpath:/templates/
+    suffix: .html
+    mode: LEGACYHTML5
+    encoding: UTF-8
+    servlet:
+      content-type: text/html
+    cache: false
+
 
 # Mybatis-Plus
 mybatis-plus:
   # 配置mapper的扫描，找到所有的mapper.xml映射文件
-  mapper-locations: classpath: com/maitianer/modeldemo/mapper/xml/*.xml
+  mapper-locations: classpath:/com/maitianer/modeldemo/mapper/xml/*.xml
   #实体扫描
-  typeAliasesPackage: com.maitianer.modeldemo
+  typeAliasesPackage: com.maitianer.modeldemo.domain
   global-config:
     # 数据库相关配置
     db-config:
@@ -39,4 +48,14 @@ mybatis-plus:
     map-underscore-to-camel-case: true
     cache-enabled: false
     # 打印sql日志
-    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+#    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+shiro:
+  loginUrl: /login.html
+  unauthorizedUrl: /unauthorized
+## 使用shiro管理会话
+  userNativeSessionManager: true
+  sessionManager:
+    sessionIdUrlRewritingEnabled: false
+  cookie:
+    name: sid
