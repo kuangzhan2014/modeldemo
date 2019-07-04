@@ -41,6 +41,7 @@ public class ShiroConfig {
         Map<String,String> filterMap =new LinkedHashMap<String, String>();
 //        filterMap.put("/add","authc");
 //        filterMap.put("/update","authc");
+        filterMap.put("/druid","anon");
         filterMap.put("/testThymeleaf","anon");
         filterMap.put("/login","anon");
         //授权过滤器,当前授权被拦截自动跳转到未授权页面
