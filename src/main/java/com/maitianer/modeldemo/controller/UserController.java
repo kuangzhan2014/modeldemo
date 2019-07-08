@@ -58,7 +58,7 @@ public class UserController {
         try {
             //登录成功
             subject.login(token);
-            return "test";
+            return "index";
         } catch (UnknownAccountException e) {
             //登录失败:用户名不存在
             model.addAttribute("msg","用户名不存在");
@@ -69,4 +69,5 @@ public class UserController {
             return "login";
         }
     }
+
 }
