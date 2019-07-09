@@ -1,9 +1,12 @@
 package com.maitianer.modeldemo.domain;
 
+import com.baomidou.mybatisplus.annotation.TableName;
+
 /**
  * @Author: zhou
  * @Date: 2019/06/28 14:38
  */
+@TableName("user")
 public class User {
     private Integer id;
     private String username;

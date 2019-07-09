@@ -42,8 +42,8 @@ public class ShiroConfig {
 //        filterMap.put("/add","authc");
 //        filterMap.put("/update","authc");
         filterMap.put("/druid","anon");
-        filterMap.put("/testThymeleaf","anon");
-        filterMap.put("/login","anon");
+//        filterMap.put("/testThymeleaf","anon");
+        filterMap.put("/user/login","anon");
         //授权过滤器,当前授权被拦截自动跳转到未授权页面
         filterMap.put("/add","perms[user:add]");
         filterMap.put("/update","perms[user:update]");
@@ -52,7 +52,7 @@ public class ShiroConfig {
 
 
         //修改调整的登录页面
-        shiroFilterFactoryBean.setLoginUrl("/toLogin");
+        shiroFilterFactoryBean.setLoginUrl("/user/login");
         //设置未授权提示页面
         shiroFilterFactoryBean.setUnauthorizedUrl("/noAuth");
 
