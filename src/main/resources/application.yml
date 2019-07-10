@@ -61,6 +61,7 @@ spring:
     servlet:
       content-type: text/html
     cache: false
+    sessionIdUrlRewritingEnabled: false
 
 
 # Mybatis-Plus
@@ -96,7 +97,7 @@ mybatis-plus:
 #    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 
 shiro:
-  loginUrl: /login.html
+  loginUrl: /user/login.html
   unauthorizedUrl: /unauthorized
 ## 使用shiro管理会话
   userNativeSessionManager: true

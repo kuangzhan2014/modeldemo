@@ -4,9 +4,7 @@ import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.*;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.*;
 
 /**
  * @Author: zhou
@@ -46,7 +44,7 @@ public class UserController {
     return "/noAuth";
     }
 
-    @RequestMapping("/login")
+    @RequestMapping(value="/login")
     public String login(String username,String password,Model model){
 //        System.out.println("username="+username);
         /**
