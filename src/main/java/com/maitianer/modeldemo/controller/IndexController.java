@@ -2,6 +2,7 @@ package com.maitianer.modeldemo.controller;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
 
 /**
  * @Author: zhou
@@ -9,9 +10,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
  */
 @Controller("indexController")
 public class IndexController {
-
-    @RequestMapping(value ={"/","index"})
+    @RequestMapping(value = { "/","/indexFrame" }, method = RequestMethod.GET)
     public String index(){
-      return "redirect:/index";
+       return "indexFrame";
     }
 }

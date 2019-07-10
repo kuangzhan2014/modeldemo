@@ -13,14 +13,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class HomepageController {
     @RequestMapping("/console")
     public String console(){
-        return "home/console";
+        return "/home/console";
     }
     @RequestMapping("/homepage1")
     public String homepage1(){
-        return "home/homepage1";
+        return "/home/homepage1";
     }
     @RequestMapping("/homepage2")
     public String homepage2(){
-        return "home/homepage2";
+        return "/home/homepage2";
     }
 }

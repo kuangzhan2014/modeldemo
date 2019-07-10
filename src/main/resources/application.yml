@@ -61,7 +61,7 @@ spring:
     servlet:
       content-type: text/html
     cache: false
-    sessionIdUrlRewritingEnabled: false
+
 
 
 # Mybatis-Plus
@@ -98,6 +98,7 @@ mybatis-plus:
 
 shiro:
   loginUrl: /user/login.html
+  successUrl: /indexFrame
   unauthorizedUrl: /unauthorized
 ## 使用shiro管理会话
   userNativeSessionManager: true
