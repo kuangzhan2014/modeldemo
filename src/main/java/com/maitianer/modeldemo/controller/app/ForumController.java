@@ -12,6 +12,10 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class ForumController {
     @RequestMapping("list")
     public String list(){return "app/forum/list";}
+    @RequestMapping("listform")
+    public String listform(){return "app/forum/listform";}
     @RequestMapping("replys")
     public String replys(){return "app/forum/replys";}
+    @RequestMapping("replysform")
+    public String replysform(){return "app/forum/replysform";}
 }

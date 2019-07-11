@@ -16,7 +16,7 @@ public class GridController {
     }
     @RequestMapping("mobile")
     public String mobile(){
-        return "/component/grid/mobile";
+        return "component/grid/mobile";
     }
     @RequestMapping("mobile-pc")
     public String mobile_pc(){

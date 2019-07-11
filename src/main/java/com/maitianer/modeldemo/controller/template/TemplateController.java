@@ -1,4 +1,4 @@
-package com.maitianer.modeldemo.controller;
+package com.maitianer.modeldemo.controller.template;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -22,6 +22,8 @@ public class TemplateController {
     public String msgboard(){return "template/msgboard";}
     @RequestMapping("search")
     public String search(){return "template/search";}
+    @RequestMapping("temp")
+    public String temp(){return "template/temp";}
     @RequestMapping("tips/404")
     public String tips_404(){return "template/tips/404";}
     @RequestMapping("tips/error")

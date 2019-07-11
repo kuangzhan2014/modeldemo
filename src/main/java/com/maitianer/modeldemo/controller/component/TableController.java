@@ -56,4 +56,6 @@ public class TableController {
     public String cellEvent(){return "component/table/cellEvent";}
     @RequestMapping("thead")
     public String thead(){return "component/table/thead";}
+    @RequestMapping("index")
+    public String index(){return "component/table/index";}
 }

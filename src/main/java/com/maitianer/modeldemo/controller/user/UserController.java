@@ -34,14 +34,9 @@ public class UserController {
 //        return "/user/update";
 //    }
 //
-//    @RequestMapping("/toLogin")
-//    public String tologin(){
-//        return "/login";
-//    }
-//
 //    @RequestMapping("/noAuth")
 //    public String noAuth(){
-//    return "/noAuth";
+//    return "/user/noAuth";
 //    }
 
     @RequestMapping(value="/login")

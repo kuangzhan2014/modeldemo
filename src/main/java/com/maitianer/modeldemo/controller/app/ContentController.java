@@ -12,8 +12,14 @@ import org.springframework.web.bind.annotation.RequestMapping;
 public class ContentController {
     @RequestMapping("list")
     public String list(){return "app/content/list";}
+    @RequestMapping("listform")
+    public String listform(){return "app/content/listform";}
     @RequestMapping("tags")
     public String tags(){return "app/content/tags";}
+    @RequestMapping("tagsform")
+    public String tagsfrorm(){return "app/content/tagsform";}
     @RequestMapping("comment")
     public String comment(){return "app/content/comment";}
+    @RequestMapping("contform")
+    public String contform(){return "app/content/contform";}
 }

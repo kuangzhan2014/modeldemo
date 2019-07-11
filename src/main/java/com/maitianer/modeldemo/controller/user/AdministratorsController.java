@@ -14,4 +14,9 @@ public class AdministratorsController {
     public String list(){return "user/administrators/list";}
     @RequestMapping("role")
     public String role(){return "user/administrators/role";}
+    @RequestMapping("roleform")
+    public String roleform(){return "user/administrators/roleform";}
+    @RequestMapping("adminform")
+    public String adminform(){return "user/administrators/adminform";}
+
 }

@@ -1,5 +1,6 @@
 package com.maitianer.modeldemo.controller.component;
 
+import org.apache.logging.log4j.message.StringFormattedMessage;
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -60,4 +61,8 @@ public class ComponentController{
     public String util(){return "component/util/index";}
     @RequestMapping("code/index")
     public String code(){return "component/code/index";}
+    @RequestMapping("laytpl")
+    public String laytpl(){return "component/laytpl/index";}
+    @RequestMapping("temp")
+    public String temp(){return "component/temp";}
 }
