@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @Author: zhou
  * @Date: 2019/07/09 14:38
  */
-@Controller("girdController")
-@RequestMapping("/component/grid")
+@Controller("component/girdController")
+@RequestMapping("component/grid")
 public class GridController {
     @RequestMapping("list")
     public String list(){

@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @Date: 2019/07/10 14:38
  */
 @Controller("templateController")
-@RequestMapping("/template")
+@RequestMapping("template")
 public class TemplateController {
     @RequestMapping("personalpage")
     public String personalpage(){return "template/personalpage";}

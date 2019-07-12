@@ -9,7 +9,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @Date: 2019/07/09 14:30
  */
 @Controller("componentController")
-@RequestMapping("/component")
+@RequestMapping("component")
 public class ComponentController{
     @RequestMapping("button/index")
     public String button(){

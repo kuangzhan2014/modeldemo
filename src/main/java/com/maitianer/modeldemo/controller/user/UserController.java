@@ -11,7 +11,7 @@ import org.springframework.web.bind.annotation.*;
  * @Date: 2019/06/26 09:53
  */
 @Controller("userController")
-@RequestMapping("/user")
+@RequestMapping("user")
 public class UserController {
 //    @RequestMapping("/hello")
 //    @ResponseBody
@@ -39,7 +39,7 @@ public class UserController {
 //    return "/user/noAuth";
 //    }
 
-    @RequestMapping(value="/login")
+    @RequestMapping(value="login")
     public String login(String username,String password,Model model){
 //        System.out.println("username="+username);
         /**

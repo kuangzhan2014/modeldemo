@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @Author: zhou
  * @Date: 2019/07/10 14:11
  */
-@Controller("tableController")
-@RequestMapping("/component/table")
+@Controller("component/tableController")
+@RequestMapping("component/table")
 public class TableController {
     @RequestMapping("static")
     public String tableStatic(){return "component/table/static";}

@@ -1,4 +1,4 @@
-package com.maitianer.modeldemo.controller;
+package com.maitianer.modeldemo.controller.system;
 
 import org.springframework.stereotype.Controller;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @Date: 2019/07/11 16:50
  */
 @Controller("systemController")
-@RequestMapping("/system")
+@RequestMapping("system")
 public class SystemController {
     @RequestMapping("about")
     public String about(){return "system/about";}

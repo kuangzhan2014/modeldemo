@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @Author: zhou
  * @Date: 2019/07/10 14:06
  */
-@Configuration("laydateController")
-@RequestMapping("/component/laydate")
+@Configuration("component/laydateController")
+@RequestMapping("component/laydate")
 public class LaydateController {
     @RequestMapping("demo1")
     public String demo1(){return "component/laydate/demo1";}

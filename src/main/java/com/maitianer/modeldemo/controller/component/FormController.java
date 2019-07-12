@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @Author: zhou
  * @Date: 2019/07/09 14:50
  */
-@Controller("formController")
-@RequestMapping("/component/form")
+@Controller("component/formController")
+@RequestMapping("component/form")
 public class FormController {
     @RequestMapping("element")
     public String element(){

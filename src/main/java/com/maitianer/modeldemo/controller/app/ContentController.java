@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @Author: zhou
  * @Date: 2019/07/10 14:48
  */
-@Controller("contentController")
-@RequestMapping("/app/content")
+@Controller("app/contentController")
+@RequestMapping("app/content")
 public class ContentController {
     @RequestMapping("list")
     public String list(){return "app/content/list";}

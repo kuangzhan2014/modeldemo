@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @Author: zhou
  * @Date: 2019/07/10 14:29
  */
-@Controller("laypageController")
-@RequestMapping("/component/laypage")
+@Controller("component/laypageController")
+@RequestMapping("component/laypage")
 public class LaypageController {
     @RequestMapping("demo1")
     public String demo1(){return "component/laypage/demo1";}

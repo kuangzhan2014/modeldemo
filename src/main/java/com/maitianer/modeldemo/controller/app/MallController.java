@@ -7,8 +7,8 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @Author: zhou
  * @Date: 2019/07/11 16:20
  */
-@Controller("mallController")
-@RequestMapping("/app/mall")
+@Controller("app/mallController")
+@RequestMapping("app/mall")
 public class MallController {
     @RequestMapping("category")
     public String category(){return "app/mall/category";}

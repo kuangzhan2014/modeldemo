@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @Author: zhou
  * @Date: 2019/07/10 14:58
  */
-@Controller("workorderController")
+@Controller("app/workorderController")
 @RequestMapping("/app/workorder")
 public class WorkorderController {
     @RequestMapping("list")

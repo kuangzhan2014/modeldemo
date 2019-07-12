@@ -1,4 +1,4 @@
-package com.maitianer.modeldemo.controller;
+package com.maitianer.modeldemo.controller.home;
 
 import org.mybatis.spring.annotation.MapperScan;
 import org.springframework.stereotype.Controller;
@@ -11,16 +11,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 @Controller("homeController")
 @RequestMapping("home")
 public class HomeController {
-    @RequestMapping("/console")
+    @RequestMapping("console")
     public String console(){
-        return "/home/console";
+        return "home/console";
     }
-    @RequestMapping("/homepage1")
+    @RequestMapping("homepage1")
     public String homepage1(){
-        return "/home/homepage1";
+        return "home/homepage1";
     }
-    @RequestMapping("/homepage2")
+    @RequestMapping("homepage2")
     public String homepage2(){
-        return "/home/homepage2";
+        return "home/homepage2";
     }
 }
