@@ -1,6 +1,6 @@
 package com.maitianer.modeldemo.realm;
 
-import com.maitianer.modeldemo.domain.User;
+import com.maitianer.modeldemo.modules.sys.model.User;
 import com.maitianer.modeldemo.service.UserService;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.authc.*;

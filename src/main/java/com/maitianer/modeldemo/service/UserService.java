@@ -1,6 +1,6 @@
 package com.maitianer.modeldemo.service;
 
-import com.maitianer.modeldemo.domain.User;
+import com.maitianer.modeldemo.modules.sys.model.User;
 
 /**
  * @Author: zhou

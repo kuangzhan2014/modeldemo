@@ -1,6 +1,6 @@
 package com.maitianer.modeldemo.service.impl;
 
-import com.maitianer.modeldemo.domain.User;
+import com.maitianer.modeldemo.modules.sys.model.User;
 import com.maitianer.modeldemo.mapper.UserMapper;
 import com.maitianer.modeldemo.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;

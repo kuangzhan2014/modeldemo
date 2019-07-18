@@ -67,9 +67,9 @@ spring:
 # Mybatis-Plus
 mybatis-plus:
   # 配置mapper的扫描，找到所有的mapper.xml映射文件
-  mapper-locations: classpath:/com/maitianer/modeldemo/mapper/xml/*.xml
+  mapper-locations: classpath:/com/maitianer/modeldemo/**/mapper/xml/*.xml
   #实体扫描
-  typeAliasesPackage: com.maitianer.modeldemo.domain
+  typeAliasesPackage: com.maitianer.modeldemo.modules.**.model
   global-config:
     # 数据库相关配置
     db-config:
