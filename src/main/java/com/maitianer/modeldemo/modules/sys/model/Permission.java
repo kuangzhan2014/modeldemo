@@ -13,6 +13,7 @@ public class Permission extends BaseModel<Permission> {
     private String name;
     private Integer type;
     private String permissionValue;
+    private String description;
     private Integer status;
 
     public String getParentId() {
@@ -45,6 +46,14 @@ public class Permission extends BaseModel<Permission> {
 
     public void setPermissionValue(String permissionValue) {
         this.permissionValue = permissionValue;
+    }
+
+    public String getDescription() {
+        return description;
+    }
+
+    public void setDescription(String description) {
+        this.description = description;
     }
 
     public Integer getStatus() {
