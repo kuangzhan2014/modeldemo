@@ -34,5 +34,9 @@ public class MemberRole {
         this.roleId=roleId;
     }
 
+    public MemberRole() {
+    }
+
+    ;
 
 }

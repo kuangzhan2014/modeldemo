@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.maitianer.modeldemo.modules.sys.mapper.PermissionMapper">
 
-    <sql id="Base_Colum_List">
+    <sql id="Base_Column_List">
         c.id,
         c.parent_id AS parent_id,
         c.name,
@@ -43,7 +43,7 @@
         WHERE p.id = rp.permission_id AND rp.role_id = #{roleId}
     </select>
 
-    <select id="selectAllWithParent" resultMap="Permission">
+    <select id="selectAllWithParent" resultType="Permission" resultMap="BaseResultMap">
        <include refid="Base_Column_List"/>
         from sys_permission c
         left join sys_permission p on c.parent_id = p.id

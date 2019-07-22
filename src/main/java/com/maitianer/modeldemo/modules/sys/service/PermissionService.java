@@ -1,5 +1,6 @@
 package com.maitianer.modeldemo.modules.sys.service;
 
+import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.maitianer.modeldemo.modules.sys.model.Permission;
 
@@ -12,7 +13,8 @@ import java.util.function.Predicate;
  * @Date: 2019/07/18 11:04
  */
 public interface PermissionService extends IService<Permission> {
-    List<Permission>findByRoleId(String roleId);
+    List<Permission> findByRoleId(Long roleId);
     Permission findByPermissionValue(String permissionValue);
-    List<Permission>findAll();
+
+    List<Permission> findAll(Wrapper<Permission> wrapper);
 }

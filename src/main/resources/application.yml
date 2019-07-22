@@ -97,12 +97,17 @@ mybatis-plus:
 #    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 
 shiro:
-  loginUrl: /user/login.html
+  loginUrl: /user/login
   successUrl: /indexFrame
-  unauthorizedUrl: /unauthorized
+  unauthorizedUrl: /401
 ## 使用shiro管理会话
   userNativeSessionManager: true
   sessionManager:
     sessionIdUrlRewritingEnabled: false
   cookie:
     name: sid
+  rememberMeManager:
+    cookie:
+    ## 默认一周
+      maxAge: 604800
+      secure: false

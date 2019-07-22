@@ -14,6 +14,6 @@ import java.util.List;
  */
 @Repository
 public interface PermissionMapper extends BaseMapper<Permission> {
-    List<Permission> selectByRoleId(String roleId);
+    List<Permission> selectByRoleId(Long roleId);
     List<Permission> selectAllWithParent(@Param("ew")Wrapper<Permission>wrapper);
 }

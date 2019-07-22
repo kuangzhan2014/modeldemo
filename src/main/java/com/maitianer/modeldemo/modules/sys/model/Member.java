@@ -14,7 +14,7 @@ import java.util.Date;
 @TableName("sys_member")
 public class Member extends BaseModel<Member> {
    private String memberName;
-   private String encrytedPassword;
+    private String encryptedPassword;
    private String passwordSalt;
    private String cellphone;
    private String phone;
@@ -33,12 +33,12 @@ public class Member extends BaseModel<Member> {
         this.memberName = memberName;
     }
 
-    public String getEncrytedPassword() {
-        return encrytedPassword;
+    public String getEncryptedPassword() {
+        return encryptedPassword;
     }
 
-    public void setEncrytedPassword(String encrytedPassword) {
-        this.encrytedPassword = encrytedPassword;
+    public void setEncryptedPassword(String encryptedPassword) {
+        this.encryptedPassword = encryptedPassword;
     }
 
     public String getPasswordSalt() {

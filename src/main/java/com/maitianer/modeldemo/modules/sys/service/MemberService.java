@@ -38,7 +38,7 @@ public interface MemberService extends IService<Member> {
      * @Param: [memberId]
      * @Return: java.util.List<java.lang.String>
      */
-    List<String>getPermissions(Long memberId);
+    List<String> getStringPermissions(Long memberId);
 
     /**
      * 功能描述: 检验用户密码是否正确

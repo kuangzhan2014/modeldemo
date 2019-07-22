@@ -1,5 +1,6 @@
 package com.maitianer.modeldemo.modules.sys.service.Impl;
 
+import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
 import com.maitianer.modeldemo.modules.sys.mapper.PermissionMapper;
@@ -20,7 +21,7 @@ public class PermissionServiceImpl extends ServiceImpl<PermissionMapper,Permissi
     private  PermissionMapper permissionMapper;
 
     @Override
-    public List<Permission> findByRoleId(String roleId) {
+    public List<Permission> findByRoleId(Long roleId) {
         return permissionMapper.selectByRoleId(roleId);
     }
 
@@ -30,7 +31,7 @@ public class PermissionServiceImpl extends ServiceImpl<PermissionMapper,Permissi
     }
 
     @Override
-    public List<Permission> findAll() {
-        return baseMapper.selectAll();
+    public List<Permission> findAll(Wrapper<Permission> wrapper) {
+        return baseMapper.selectAllWithParent(wrapper);
     }
 }
