@@ -1,5 +1,6 @@
 package com.maitianer.modeldemo.modules.sys.model;
 
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 
 /**
@@ -8,7 +9,9 @@ import com.baomidou.mybatisplus.annotation.TableName;
  */
 @TableName("sys_role_permission")
 public class RolePermission {
+    @TableId
     private Long roleId;
+    @TableId
     private Long permissionId;
 
     public Long getRoleId() {

@@ -31,7 +31,6 @@ public class MemberController extends BaseController {
     public String changPassword() {
         return "user/changPassword";
     }
-
     @PostMapping("changPassword")
     public String doChangPassword(String oldPassword, String newPassword, RedirectAttributes redirectAttributes) {
         Member member = MemberUtils.getCurrentMember();

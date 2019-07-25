@@ -1,5 +1,6 @@
 package com.maitianer.modeldemo.modules.sys.model;
 
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 
 import java.util.function.LongFunction;
@@ -10,7 +11,9 @@ import java.util.function.LongFunction;
  */
 @TableName("sys_member_role")
 public class MemberRole {
+    @TableId
     private Long memberId;
+    @TableId
     private Long roleId;
 
     public Long getMemberId() {

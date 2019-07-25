@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * @Author: zhou
  * @Date: 2019/07/11 16:50
  */
-@Controller("systemController")
+@Controller("sysController")
 @RequestMapping("system")
 public class SystemController {
     @RequestMapping("about")

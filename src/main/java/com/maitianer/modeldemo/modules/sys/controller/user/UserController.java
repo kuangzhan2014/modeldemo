@@ -25,20 +25,6 @@ public class UserController {
     @Autowired
     private MemberService memberService;
 
-//    @RequestMapping("/add")
-//    public String add(){
-//        return  "/user/add";
-//    }
-//    @RequestMapping("/update")
-//    public String update(){
-//        return "/user/update";
-//    }
-//
-//    @RequestMapping("/noAuth")
-//    public String noAuth(){
-//    return "/user/noAuth";
-//    }
-
     //    @RequestMapping(value="login")
 //    public String login(String username,String password,Model model){
 ////        System.out.println("username="+username);

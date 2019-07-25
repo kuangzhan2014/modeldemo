@@ -2,15 +2,13 @@ package com.maitianer.modeldemo.modules.sys.service.Impl;
 
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
-import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.maitianer.common.utils.StringUtils;
 import com.maitianer.modeldemo.core.DomainConstants;
 import com.maitianer.modeldemo.modules.sys.mapper.MemberMapper;
 import com.maitianer.modeldemo.modules.sys.mapper.MemberRoleMapper;
 import com.maitianer.modeldemo.modules.sys.model.*;
 import com.maitianer.modeldemo.modules.sys.service.*;
-import com.maitianer.modeldemo.utils.StringUtils;
-import com.sun.org.apache.bcel.internal.generic.RETURN;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.subject.Subject;
 import org.apache.shiro.util.Assert;
@@ -92,9 +90,7 @@ public class MemberServiceImpl extends ServiceImpl<MemberMapper,Member> implemen
             memberRole.setRoleId(role.getId());
             memberRoleMapper.insert(memberRole);
         }
-
         return member;
-
     }
 
     @Override

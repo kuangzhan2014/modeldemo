@@ -1,5 +1,6 @@
 package com.maitianer.modeldemo.modules.sys.model;
 
+import com.baomidou.mybatisplus.annotation.TableId;
 import com.baomidou.mybatisplus.annotation.TableName;
 
 /**
@@ -8,7 +9,9 @@ import com.baomidou.mybatisplus.annotation.TableName;
  */
 @TableName("sys_member_organization")
 public class MemberOrganization {
+    @TableId
     private Long memberId;
+    @TableId
     private Long organizationId;
 
     public Long getMemberId() {
