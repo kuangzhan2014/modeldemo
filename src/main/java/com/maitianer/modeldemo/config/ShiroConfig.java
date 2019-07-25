@@ -28,7 +28,7 @@ public class ShiroConfig {
         DefaultShiroFilterChainDefinition chainDefinition = new DefaultShiroFilterChainDefinition();
         chainDefinition.addPathDefinition("/favicon.ico", "anon");
         chainDefinition.addPathDefinition("/static/**", "anon");
-//        chainDefinition.addPathDefinition("/sys/logout", "logout");
+        chainDefinition.addPathDefinition("/user/logout", "logout");
         // 注册，可匿名访问
         chainDefinition.addPathDefinition("/user/reg", "anon");
         chainDefinition.addPathDefinition("/user/forget", "anon");

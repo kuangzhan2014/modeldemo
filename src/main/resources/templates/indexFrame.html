@@ -75,16 +75,16 @@
               <dd><a lay-href="/set/user/info">基本资料</a></dd>
               <dd><a lay-href="/set/user/password">修改密码</a></dd>
               <hr>
-              <dd style="text-align: center;"><a th:href="@{/user/login}">退出</a></dd>
+                <dd style="text-align: center;"><a th:href="@{/user/logout}">退出</a></dd>
             </dl>
           </li>
           <!--更多选项-->
-          <li class="layui-nav-item layui-hide-xs" lay-unselect>
-            <a href="javascript:;" layadmin-event="about"><i class="layui-icon layui-icon-more-vertical"></i></a>
-          </li>
-          <li class="layui-nav-item layui-show-xs-inline-block layui-hide-sm" lay-unselect>
-            <a href="javascript:;" layadmin-event="more"><i class="layui-icon layui-icon-more-vertical"></i></a>
-          </li>
+            <!--<li class="layui-nav-item layui-hide-xs" lay-unselect>-->
+            <!--<a href="javascript:;" layadmin-event="about"><i class="layui-icon layui-icon-more-vertical"></i></a>-->
+            <!--</li>-->
+            <!--<li class="layui-nav-item layui-show-xs-inline-block layui-hide-sm" lay-unselect>-->
+            <!--<a href="javascript:;" layadmin-event="more"><i class="layui-icon layui-icon-more-vertical"></i></a>-->
+            <!--</li>-->
         </ul>
       </div>
       
@@ -474,7 +474,7 @@
   <script src="../layuiadmin/layui/layui.js"></script>
   <script>
   layui.config({
-    base: '../layuiadmin/' //静态资源所在路径
+      base: '/static/layuiadmin/' //静态资源所在路径
   }).extend({
     index: 'lib/index' //主入口模块
   }).use('index');

@@ -13,7 +13,7 @@ import java.util.List;
  */
 public interface MemberService extends IService<Member> {
     /**
-     * 功能描述: 根据用户名差找用户
+     * 功能描述: 根据用户名查找用户
      * @Param: [memberName]
      * @Return: com.maitianer.modeldemo.modules.sys.model.Member
      */
@@ -52,7 +52,7 @@ public interface MemberService extends IService<Member> {
      * @Param: [member, password, roleId]
      * @Return: com.maitianer.modeldemo.modules.sys.model.Member
      */
-    Member cteateMember(Member member,String password,Long roleId);
+    Member createMember(Member member, String password, Long roleId);
 
     /**
      * 功能描述: 更新用户
@@ -61,4 +61,7 @@ public interface MemberService extends IService<Member> {
      */
     Member updateMember(Member member,String password,Long roleId);
 
+    Member getData(Long id);
+
+    void logout();
 }

@@ -99,7 +99,7 @@ mybatis-plus:
 shiro:
   loginUrl: /user/login
   successUrl: /indexFrame
-  unauthorizedUrl: /401
+  unauthorizedUrl: /403
 ## 使用shiro管理会话
   userNativeSessionManager: true
   sessionManager:
@@ -111,3 +111,8 @@ shiro:
     ## 默认一周
       maxAge: 604800
       secure: false
+
+  # session过期时间，单位分钟，默认30分钟
+#  servlet:
+#    session:
+#      timeout: 1m
