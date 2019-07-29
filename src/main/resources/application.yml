@@ -3,6 +3,9 @@ server:
 spring:
   profiles:
     active: dev
+  mvc:
+    #静态资源配置，将url为static的请求映射到static路径下
+    static-path-pattern: /static/**
   datasource:
     # 使用阿里的Druid连接池
     type: com.alibaba.druid.pool.DruidDataSource
@@ -116,3 +119,4 @@ shiro:
 #  servlet:
 #    session:
 #      timeout: 1m
+

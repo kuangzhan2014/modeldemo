@@ -8,6 +8,7 @@ import com.maitianer.modeldemo.core.DomainConstants;
 import com.maitianer.modeldemo.modules.sys.mapper.MemberMapper;
 import com.maitianer.modeldemo.modules.sys.mapper.MemberRoleMapper;
 import com.maitianer.modeldemo.modules.sys.model.*;
+import com.maitianer.modeldemo.modules.sys.model.dto.MemberDTO;
 import com.maitianer.modeldemo.modules.sys.service.*;
 import org.apache.shiro.SecurityUtils;
 import org.apache.shiro.subject.Subject;
@@ -117,6 +118,11 @@ public class MemberServiceImpl extends ServiceImpl<MemberMapper,Member> implemen
     @Override
     public Member getData(Long id) {
         return baseMapper.getData(new QueryWrapper<Member>().eq("m.id", "id"));
+    }
+
+    @Override
+    public boolean check(MemberDTO memberDTO) {
+        return false;
     }
 
     @Override

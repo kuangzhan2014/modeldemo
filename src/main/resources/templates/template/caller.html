@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="utf-8">
   <title>搜索</title>
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
-  <link rel="stylesheet" href="../../layuiadmin/layui/css/layui.css" media="all">
-  <link rel="stylesheet" href="../../layuiadmin/style/admin.css" media="all">
-  <link rel="stylesheet" href="../../layuiadmin/style/template.css" media="all">
+    <link rel="stylesheet" th:href="@{/static/layuiadmin/layui/css/layui.css}" media="all">
+    <link rel="stylesheet" th:href="@{/static/layuiadmin/style/admin.css}" media="all">
+    <link rel="stylesheet" th:href="@{/static/layuiadmin/style/template.css}" media="all">
 </head>
 <body>
 
@@ -28,7 +28,7 @@
       </div>
       <div class="caller-contar">
         <div class="caller-item">
-          <img src="../../layuiadmin/style/res/template/portrait.png" alt="" class="caller-img caller-fl">
+            <img th:src="@{/static/layuiadmin/style/res/template/portrait.png}" alt="" class="caller-img caller-fl">
           <div class="caller-main caller-fl">       
             <p><strong>胡歌</strong> <em>最近联系：1 小时前</em></p>
             <p class="caller-adds"><i class="layui-icon layui-icon-location"></i>浙江省广州市越秀区中山六路109</p>
@@ -44,7 +44,7 @@
           </button>
         </div>
         <div class="caller-item">
-          <img src="../../layuiadmin/style/res/template/portrait.png" alt="" class="caller-img caller-fl">
+            <img th:src="@{/static/layuiadmin/style/res/template/portrait.png}" alt="" class="caller-img caller-fl">
           <div class="caller-main caller-fl">       
             <p><strong>胡歌</strong> <em>最近联系：1 小时前</em></p>
             <p class="caller-adds"><i class="layui-icon layui-icon-location"></i>浙江省广州市越秀区中山六路109</p>
@@ -59,7 +59,7 @@
           </button>
         </div>
         <div class="caller-item">
-          <img src="../../layuiadmin/style/res/template/portrait.png" alt="" class="caller-img caller-fl">
+            <img th:src="@{/static/layuiadmin/style/res/template/portrait.png}" alt="" class="caller-img caller-fl">
           <div class="caller-main caller-fl">       
             <p><strong>胡歌</strong> <em>最近联系：1 小时前</em></p>
             <p class="caller-adds"><i class="layui-icon layui-icon-location"></i>浙江省广州市越秀区中山六路109</p>
@@ -75,7 +75,7 @@
           </button>
         </div>
         <div class="caller-item">
-          <img src="../../layuiadmin/style/res/template/portrait.png" alt="" class="caller-img caller-fl">
+            <img th:src="@{/static/layuiadmin/style/res/template/portrait.png}" alt="" class="caller-img caller-fl">
           <div class="caller-main caller-fl">       
             <p><strong>胡歌</strong> <em>最近联系：1 小时前</em></p>
             <p class="caller-adds"><i class="layui-icon layui-icon-location"></i>浙江省广州市越秀区中山六路109</p>
@@ -90,7 +90,7 @@
           </button>
         </div>
         <div class="caller-item">
-          <img src="../../layuiadmin/style/res/template/portrait.png" alt="" class="caller-img caller-fl">
+            <img th:src="@{/static/layuiadmin/style/res/template/portrait.png}" alt="" class="caller-img caller-fl">
           <div class="caller-main caller-fl">       
             <p><strong>胡歌</strong> <em>最近联系：1 小时前</em></p>
             <p class="caller-adds"><i class="layui-icon layui-icon-location"></i>浙江省广州市越秀区中山六路109</p>
@@ -106,7 +106,7 @@
           </button>
         </div>
         <div class="caller-item">
-          <img src="../../layuiadmin/style/res/template/portrait.png" alt="" class="caller-img caller-fl">
+            <img th:src="@{/static/layuiadmin/style/res/template/portrait.png}" alt="" class="caller-img caller-fl">
           <div class="caller-main caller-fl">       
             <p><strong>胡歌</strong> <em>最近联系：1 小时前</em></p>
             <p class="caller-adds"><i class="layui-icon layui-icon-location"></i>浙江省广州市越秀区中山六路109</p>
@@ -121,7 +121,7 @@
           </button>
         </div>
         <div class="caller-item">
-          <img src="../../layuiadmin/style/res/template/portrait.png" alt="" class="caller-img caller-fl">
+            <img th:src="@{/static/layuiadmin/style/res/template/portrait.png}" alt="" class="caller-img caller-fl">
           <div class="caller-main caller-fl">       
             <p><strong>胡歌</strong> <em>最近联系：1 小时前</em></p>
             <p class="caller-adds"><i class="layui-icon layui-icon-location"></i>浙江省广州市越秀区中山六路109</p>
@@ -137,7 +137,7 @@
           </button>
         </div>
         <div class="caller-item">
-          <img src="../../layuiadmin/style/res/template/portrait.png" alt="" class="caller-img caller-fl">
+            <img th:src="@{/static/layuiadmin/style/res/template/portrait.png}" alt="" class="caller-img caller-fl">
           <div class="caller-main caller-fl">       
             <p><strong>胡歌</strong> <em>最近联系：1 小时前</em></p>
             <p class="caller-adds"><i class="layui-icon layui-icon-location"></i>浙江省广州市越秀区中山六路109</p>
@@ -154,11 +154,12 @@
       </div>
       <div id="demo1"></div>
     </div>
-  
-  <script src="../../layuiadmin/layui/layui.js"></script>  
-  <script>
+  </div>
+
+  <script th:src="@{/static/layuiadmin/layui/layui.js}"></script>
+  <script type="text/javascript" th:inline="javascript">
   layui.config({
-    base: '../../layuiadmin/' //静态资源所在路径
+      base: '/static/layuiadmin/' //静态资源所在路径
   }).extend({
     index: 'lib/index' //主入口模块
   }).use(['index', 'laypage','layer'], function(){

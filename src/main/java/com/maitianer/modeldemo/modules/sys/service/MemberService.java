@@ -2,6 +2,7 @@ package com.maitianer.modeldemo.modules.sys.service;
 
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.maitianer.modeldemo.modules.sys.model.Member;
+import com.maitianer.modeldemo.modules.sys.model.dto.MemberDTO;
 import sun.util.resources.ga.LocaleNames_ga;
 
 import javax.print.DocFlavor;
@@ -63,5 +64,13 @@ public interface MemberService extends IService<Member> {
 
     Member getData(Long id);
 
-    void logout();
+ /**
+  * 用户审核
+  *
+  * @param memberDTO
+  * @return
+  */
+ boolean check(MemberDTO memberDTO);
+
+ void logout();
 }

@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="utf-8">
     <title>忘记密码</title>
@@ -97,78 +97,97 @@
   </div>
 
 <script type="text/javascript" th:src="@{/static/layuiadmin/layui/layui.js}"></script>
-<script type="text/javascript" th:src="@{/static/js/pickers.js}"></script>
+<!--<script type="text/javascript" th:src="@{/static/js/pickers.js}"></script>-->
 <script type="text/javascript" th:inline="javascript">
-  layui.config({
-      base: '/static/layuiadmin/' //静态资源所在路径
-  }).extend({
-    index: 'lib/index' //主入口模块
-  }).use(['index', 'user'], function(){
-    var $ = layui.$
-    ,setter = layui.setter
-    ,admin = layui.admin
-    ,form = layui.form
-    ,router = layui.router();
+    layui.config({
+        base: '/static/layuiadmin/' //静态资源所在路径
+    }).extend({
+        index: 'lib/index' //主入口模块
+    }).use(['index', 'user'], function () {
+        var $ = layui.$
+            , setter = layui.setter
+            , admin = layui.admin
+            , form = layui.form
+            , layer = layui.layer
+            , router = layui.router()
+            , search = router.search
+        // , pickers = new layui.pickers();
 
-    form.render();
+        form.render();
 
-    //找回密码下一步
-      form.on('submit(LAY-user-forget-submit)', function (obj) {
-          var field = obj.field;
-          if (field.cellphone == null || field.cellphone.length <= 0) {
-              layer.tips("手机号不能为空", "#LAY-user-login-cellphone", {
-                  time: 0
-              });
-              return false;
-          } else if (!new RegExp("^1\\d{10}$").test(field.cellphone)) {
-              layer.tips('请输入正确的手机号', '#LAY-user-login-cellphone', {
-                  time: 0
-              });
-              return false;
-          } else if (field.captcha == null || field.captcha.length <= 0) {
-              layer.tips('验证码不能为空', '#getCaptcha', {
-                  time: 0
-              });
-              return false;
-          }
-      });
+        // form.verify({
+        //     password: [
+        //         /^[\S]{6,12}$/
+        //         , '密码必须6到12位，且不能出现空格'
+        //     ]
+        //     , repassword: function (value, item) { //value：表单的值、item：表单的DOM对象
+        //         var password = $('input[name="password"]').val();
+        //         if (password != value) {
+        //             return '两次密码输入不一致';
+        //         }
+        //     }
+        // });
 
-      //请求接口
-      admin.req({
-        url: layui.setter.base + 'json/user/forget.js' //实际使用请改成服务端真实接口
-        ,data: field
-        ,done: function(res){        
-          location.hash = '/type=resetpass';
-          location.reload();
+        form.on('submit(register)', function (data) {
+            var field = data.field;
+            if (field.cellphone == null || field.cellphone.length <= 0) {
+                layer.tips('手机号不能为空', '#LAY-user-login-cellphone', {
+                    time: 0
+                });
+                return false;
+            } else if (!new RegExp("^1\\d{10}$").test(field.cellphone)) {
+                layer.tips('请输入正确的手机号', '#LAY-user-login-cellphone', {
+                    time: 0
+                });
+                return false;
+            } else if (field.captcha == null || field.captcha.length <= 0) {
+                layer.tips('验证码不能为空', '#LAY-user-login-smscode', {
+                    time: 0
+                });
+                return false;
+            }
+            register(data.field);
+            return false; //阻止表单跳转。如果需要表单跳转，去掉这段即可。
+        });
+
+        $('input').on('keyup', function () {
+            layer.closeAll();
+        })
+
+        function register(data) {
+            // 确定
+            $.ajax({
+                url: "/sys/member/forget",
+                type: "POST",
+                data: data,
+                dataType: "json",
+                cache: false,
+                success: function (result) {
+                    if (result.code == 0) {
+                        $(location).attr('href', '/sys/resetPassword?id=' + result.data);
+                    } else {
+                        layer.msg(result.msg == null ? '操作失败' : result.msg, {
+                            offset: 't',
+                            icon: 2
+                        });
+                        // layer.msg(result.msg == null ? '操作失败' : result.msg);
+                    }
+                }
+            });
         }
-      });
-      
-      return false;
-    });
-    
-    //重置密码
-    form.on('submit(LAY-user-forget-resetpass)', function(obj){
-      var field = obj.field;
-      
-      //确认密码
-      if(field.password !== field.repass){
-        return layer.msg('两次密码输入不一致');
-      }
 
-      //请求接口
-      admin.req({
-        url: layui.setter.base + 'json/user/resetpass.js' //实际使用请改成服务端真实接口
-        ,data: field
-        ,done: function(res){        
-          layer.msg('密码已成功重置', {
-            offset: '15px'
-            ,icon: 1
-            ,time: 1000
-          }, function(){
-            location.href = 'login.html'; //跳转到登入页
-          });
-        }
-      });
+        // pickers.config({
+        //     filterName: 'picker',
+        //     pickers: [{
+        //         id: 'rootOrganizationId',
+        //         dataUrl: '/api/parentOrganizations',
+        //         defaultValue: ''
+        //     }, {
+        //         id: 'organizationId',
+        //         dataUrl: '/api/subOrganizations',
+        //         defaultValue: ''
+        //     }]
+        // }).init();
 
         // 获取验证码
         $('button[name="getCaptcha"]').on('click', function () {
@@ -225,11 +244,7 @@
                 }
             }, 1000)
         }
-      
-      return false;
     });
-    
-  });
   </script>
 </body>
 </html>

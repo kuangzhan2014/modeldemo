@@ -179,7 +179,7 @@ public class RSA {
     /**
      * 从文件中加载私钥
      *
-     * @param keyFileName 私钥文件名
+     * @param in 私钥文件名
      * @return 是否成功
      */
     public static PrivateKey loadPrivateKey(InputStream in) {
@@ -280,10 +280,8 @@ public class RSA {
     /**
      * 从KeyStore获取私钥
      *
-     * @param location
      * @param alias
      * @param keyStore
-     * @param storePass
      * @param keyPass
      * @return
      */

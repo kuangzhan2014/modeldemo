@@ -1,14 +1,14 @@
 <!DOCTYPE html>
-<html>
+<html xmlns:th="http://www.thymeleaf.org">
 <head>
   <meta charset="utf-8">
   <title>个人主页</title>
   <meta name="renderer" content="webkit">
   <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
   <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
-  <link rel="stylesheet" href="../../layuiadmin/layui/css/layui.css" media="all">
-  <link rel="stylesheet" href="../../layuiadmin/style/admin.css" media="all">
-  <link rel="stylesheet" href="../../layuiadmin/style/template.css" media="all">
+    <link rel="stylesheet" th:href="@{/static/layuiadmin/layui/css/layui.css}" media="all">
+    <link rel="stylesheet" th:href="@{/static/layuiadmin/style/admin.css}" media="all">
+    <link rel="stylesheet" th:href="@{/static/layuiadmin/style/template.css}" media="all">
 </head>
 <body>
 
@@ -20,7 +20,8 @@
         <div class="layui-card text-center">
           <div class="layui-card-body">
             <div class="layadmin-homepage-pad-ver">
-              <img class="layadmin-homepage-pad-img" src="../../layuiadmin/style/res/template/portrait.png" width="96" height="96">
+                <img class="layadmin-homepage-pad-img"
+                     th:src="@{/static/layuiadmin/style/res/template/portrait.png}" width="96" height="96">
             </div>
             <h4 class="layadmin-homepage-font">胡歌</h4>
             <p class="layadmin-homepage-min-font">中国知名演员</p>
@@ -89,7 +90,7 @@
             <div class="grid-demo">
               <div class="panel-body layadmin-homepage-shadow">
                 <a href="javascript:;" class="media-left">
-                  <img src="../../layuiadmin/style/res/template/portrait.png" height="46px" width="46px">
+                    <img th:src="@{/static/layuiadmin/style/res/template/portrait.png}" height="46px" width="46px">
                 </a>
                 <div class="media-body">
                   <div class="pad-btm">
@@ -103,7 +104,7 @@
                     </p>         
                   </div>
                   <p>历经打磨，@索尼中国 再献新作品—OLED电视A8F完美诞生。很开心一起参加了A8F的“首映礼”！[鼓掌]正如我们演员对舞台的热爱，索尼对科技与艺术的追求才创造出了让人惊喜的作品。作为A1兄弟款，A8F沿袭了黑科技“屏幕发声技术”和高清画质，色彩的出众表现和高端音质，让人在体验的时候如同身临其境。A8F，这次的“视帝”要颁发给你！  索尼官网预售： O网页链接 索尼旗舰店预售：</p>
-                  <img class="h-img" src="../../layuiadmin/style/res/template/huge.jpg">
+                    <img class="h-img" th:src="@{/static/layuiadmin/style/res/template/portrait.png}">
                   <div class="media">
                     <div class="media-right">
                       <ul class="list-inline">
@@ -121,17 +122,17 @@
                       <ul class="list-inline">
                         <li>
                           <a href="javascript:;">
-                            <img class="img-xs" src="../../layuiadmin/style/res/template/portrait.png">
+                              <img class="img-xs" th:src="@{/static/layuiadmin/style/res/template/portrait.png}">
                           </a>
                         </li>
                         <li>
                           <a href="javascript:;">
-                            <img class="img-xs" src="../../layuiadmin/style/res/template/portrait.png">
+                              <img class="img-xs" th:src="@{/static/layuiadmin/style/res/template/portrait.png}">
                           </a>
                         </li>
                         <li>
                           <a href="javascript:;">
-                            <img class="img-xs" src="../../layuiadmin/style/res/template/portrait.png">
+                              <img class="img-xs" th:src="@{/static/layuiadmin/style/res/template/portrait.png}">
                           </a>
                         </li>
                         <li>
@@ -147,7 +148,7 @@
                   <div class="media-list">
                     <div class="media-item">
                       <a href="javascript:;" class="media-item-left">
-                        <img class="img-xs" src="../../layuiadmin/style/res/template/portrait.png">
+                          <img class="img-xs" th:src="@{/static/layuiadmin/style/res/template/portrait.png}">
                       </a>
                       <div class="media-text">
                         <div>
@@ -159,7 +160,7 @@
                     </div>
                     <div class="media-item">
                       <a href="javascript:;" class="media-item-left">
-                        <img class="img-xs" src="../../layuiadmin/style/res/template/portrait.png">
+                          <img class="img-xs" th:src="@{/static/layuiadmin/style/res/template/portrait.png}">
                       </a>
                       <div class="media-text">
                         <div>
@@ -171,7 +172,7 @@
                     </div>
                     <div class="media-item">
                       <a href="javascript:;" class="media-item-left">
-                        <img class="img-xs" src="../../layuiadmin/style/res/template/portrait.png">
+                          <img class="img-xs" th:src="@{/static/layuiadmin/style/res/template/portrait.png}">
                       </a>
                       <div class="media-text">
                         <div>
@@ -187,7 +188,7 @@
               </div>
               <div class="panel-body layadmin-homepage-shadow">
                 <a href="javascript:;" class="media-left">
-                  <img src="../../layuiadmin/style/res/template/portrait.png" height="46px" width="46px">
+                    <img th:src="@{/static/layuiadmin/style/res/template/portrait.png}" height="46px" width="46px">
                 </a>
                 <div class="media-body">
                   <div class="pad-btm">
@@ -218,17 +219,17 @@
                       <ul class="list-inline">
                         <li>
                           <a href="javascript:;">
-                            <img class="img-xs" src="../../layuiadmin/style/res/template/portrait.png">
+                              <img class="img-xs" th:src="@{/static/layuiadmin/style/res/template/portrait.png}">
                           </a>
                         </li>
                         <li>
                           <a href="javascript:;">
-                            <img class="img-xs" src="../../layuiadmin/style/res/template/portrait.png">
+                              <img class="img-xs" th:src="@{/static/layuiadmin/style/res/template/portrait.png}">
                           </a>
                         </li>
                         <li>
                           <a href="javascript:;">
-                            <img class="img-xs" src="../../layuiadmin/style/res/template/portrait.png">
+                              <img class="img-xs" th:src="@{/static/layuiadmin/style/res/template/portrait.png}">
                           </a>
                         </li>
                         <li>
@@ -260,28 +261,28 @@
                       <img src="../../layuiadmin/style/res/template/portrait.png">
                     </div>
                     <div class="layui-col-md4">
-                      <img src="../../layuiadmin/style/res/template/portrait.png">
+                        <img th:src="@{/static/layuiadmin/style/res/template/portrait.png}">
                     </div>
                     <div class="layui-col-md4">
-                      <img src="../../layuiadmin/style/res/template/portrait.png">
+                        <img th:src="@{/static/layuiadmin/style/res/template/portrait.png}">
                     </div>
                     <div class="layui-col-md4">
-                      <img src="../../layuiadmin/style/res/template/portrait.png">
+                        <img th:src="@{/static/layuiadmin/style/res/template/portrait.png}">
                     </div>
                     <div class="layui-col-md4">
-                      <img src="../../layuiadmin/style/res/template/portrait.png">
+                        <img th:src="@{/static/layuiadmin/style/res/template/portrait.png}">
                     </div>
                     <div class="layui-col-md4">
-                      <img src="../../layuiadmin/style/res/template/portrait.png">
+                        <img th:src="@{/static/layuiadmin/style/res/template/portrait.png}">
                     </div>
                     <div class="layui-col-md4">
-                      <img src="../../layuiadmin/style/res/template/portrait.png">
+                        <img th:src="@{/static/layuiadmin/style/res/template/portrait.png}">
                     </div>
                     <div class="layui-col-md4">
-                      <img src="../../layuiadmin/style/res/template/portrait.png">
+                        <img th:src="@{/static/layuiadmin/style/res/template/portrait.png}">
                     </div>
                     <div class="layui-col-md4">
-                      <img src="../../layuiadmin/style/res/template/portrait.png">
+                        <img th:src="@{/static/layuiadmin/style/res/template/portrait.png}">
                     </div>
                     <div class="layui-col-md12 margin-top10">
                       <a href="javascript:;"  class="layui-btn layui-btn-primary">更多</a>
@@ -299,7 +300,7 @@
                 <div class="layui-card-body">
                     <a href="javascript:;" class="layadmin-privateletterlist-item">
                       <div class="meida-left">
-                        <img src="../../layuiadmin/style/res/template/portrait.png">
+                          <img th:src="@{/static/layuiadmin/style/res/template/portrait.png}">
                       </div>
                       <div class="meida-right">
                         <p>Hugo</p>
@@ -308,7 +309,7 @@
                     </a>
                     <a href="javascript:;" class="layadmin-privateletterlist-item">
                       <div class="meida-left">
-                        <img src="../../layuiadmin/style/res/template/portrait.png">
+                          <img th:src="@{/static/layuiadmin/style/res/template/portrait.png}">
                       </div>
                       <div class="meida-right">
                         <p>Hugo</p>
@@ -317,7 +318,7 @@
                     </a>
                     <a href="javascript:;" class="layadmin-privateletterlist-item">
                       <div class="meida-left">
-                        <img src="../../layuiadmin/style/res/template/portrait.png">
+                          <img th:src="@{/static/layuiadmin/style/res/template/portrait.png}">
                       </div>
                       <div class="meida-right">
                         <p>Hugo</p>
@@ -326,7 +327,7 @@
                     </a>
                     <a href="javascript:;" class="layadmin-privateletterlist-item">
                       <div class="meida-left">
-                        <img src="../../layuiadmin/style/res/template/portrait.png">
+                          <img th:src="@{/static/layuiadmin/style/res/template/portrait.png}">
                       </div>
                       <div class="meida-right">
                         <p>Hugo</p>
@@ -335,7 +336,7 @@
                     </a>
                      <a href="javascript:;" class="layadmin-privateletterlist-item">
                       <div class="meida-left">
-                        <img src="../../layuiadmin/style/res/template/portrait.png">
+                          <img th:src="@{/static/layuiadmin/style/res/template/portrait.png}">
                       </div>
                       <div class="meida-right">
                         <p>Hugo</p>
@@ -344,7 +345,7 @@
                     </a>
                     <a href="javascript:;" class="layadmin-privateletterlist-item">
                       <div class="meida-left">
-                        <img src="../../layuiadmin/style/res/template/portrait.png">
+                          <img th:src="@{/static/layuiadmin/style/res/template/portrait.png}">
                       </div>
                       <div class="meida-right">
                         <p>Hugo</p>
@@ -362,10 +363,10 @@
 </div>
 
 
-  <script src="../../layuiadmin/layui/layui.js"></script>  
-  <script>
-  layui.config({
-    base: '../../layuiadmin/' //静态资源所在路径
+<script th:src="@{/static/layuiadmin/layui/layui.js}"></script>
+<script type="text/javascript" th:inline="javascript">
+    layui.config({
+        base: '/static/layuiadmin/' //静态资源所在路径
   }).extend({
     index: 'lib/index' //主入口模块
   }).use(['index']);
