@@ -1,7 +1,11 @@
 package com.maitianer.modeldemo.modules.sys.model;
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
-import com.maitianer.modeldemo.modules.base.BaseModel;
+import com.maitianer.modeldemo.modules.common.model.BaseModel;
+
+import java.util.ArrayList;
+import java.util.List;
 
 /**
  * @Author: zhou
@@ -9,18 +13,40 @@ import com.maitianer.modeldemo.modules.base.BaseModel;
  */
 @TableName("sys_permission")
 public class Permission extends BaseModel<Permission> {
-    private String parentId;
+    private Long parentId;
     private String name;
     private Integer type;
     private String permissionValue;
     private String description;
     private Integer status;
 
-    public String getParentId() {
+    @TableField(exist = false)
+    private Permission parent;
+
+    @TableField(exist = false)
+    private List<Permission> subPermissions = new ArrayList<>();
+
+    public Permission getParent() {
+        return parent;
+    }
+
+    public void setParent(Permission parent) {
+        this.parent = parent;
+    }
+
+    public List<Permission> getSubPermissions() {
+        return subPermissions;
+    }
+
+    public void setSubPermissions(List<Permission> subPermissions) {
+        this.subPermissions = subPermissions;
+    }
+
+    public Long getParentId() {
         return parentId;
     }
 
-    public void setParentId(String parentId) {
+    public void setParentId(Long parentId) {
         this.parentId = parentId;
     }
 

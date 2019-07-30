@@ -133,10 +133,9 @@ public class ShiroConfig {
     /**
      * 配置shiroDialect，用于thymeleaf和shiro标签配合使用
      */
-    @Bean
+    @Bean(name = "shiroDialect")
     public ShiroDialect getShiroDialect() {
         return new ShiroDialect();
     }
-
 
 }

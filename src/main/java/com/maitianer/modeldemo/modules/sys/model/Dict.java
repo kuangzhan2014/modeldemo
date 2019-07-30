@@ -1,7 +1,7 @@
 package com.maitianer.modeldemo.modules.sys.model;
 
 import com.baomidou.mybatisplus.annotation.TableName;
-import com.maitianer.modeldemo.modules.base.BaseModel;
+import com.maitianer.modeldemo.modules.common.model.BaseModel;
 
 /**
  * @Author: zhou
@@ -11,7 +11,7 @@ import com.maitianer.modeldemo.modules.base.BaseModel;
 public class Dict extends BaseModel<Dict> {
     private String dictGroup;
     private Integer code;
-    private String code_label;
+    private String codeLabel;
     private Integer sort;
     private String parentGroup;
     private Integer parentCode;
@@ -32,12 +32,12 @@ public class Dict extends BaseModel<Dict> {
         this.code = code;
     }
 
-    public String getCode_label() {
-        return code_label;
+    public String getCodeLabel() {
+        return codeLabel;
     }
 
-    public void setCode_label(String code_label) {
-        this.code_label = code_label;
+    public void setCodeLabel(String codeLabel) {
+        this.codeLabel = codeLabel;
     }
 
     public Integer getSort() {

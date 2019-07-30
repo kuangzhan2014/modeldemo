@@ -72,5 +72,7 @@ public interface MemberService extends IService<Member> {
   */
  boolean check(MemberDTO memberDTO);
 
+    boolean deleteBatchIds(Long[] ids);
+
  void logout();
 }

@@ -1,7 +1,9 @@
 package com.maitianer.modeldemo.modules.sys.model;
 
 import com.baomidou.mybatisplus.annotation.TableName;
-import com.maitianer.modeldemo.modules.base.BaseModel;
+import com.maitianer.modeldemo.ApplicationData;
+import com.maitianer.modeldemo.modules.common.model.BaseModel;
+import com.maitianer.modeldemo.core.DomainConstants;
 
 
 import java.math.BigDecimal;
@@ -28,9 +30,9 @@ public class Area extends BaseModel<Area> {
     private String treeNames;
     private String remark;
 
-//    public String getAreaTypeLabel() {
-//        return ApplicationData.get().getDictLabel(DomainConstants.DICT_GROUP_AREA_TYPE, areaType);
-//    }
+    public String getAreaTypeLabel() {
+        return ApplicationData.get().getDictLabel(DomainConstants.DICT_GROUP_AREA_TYPE, areaType);
+    }
 
     public String getAreaName() {
         return areaName;

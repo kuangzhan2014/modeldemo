@@ -13,8 +13,10 @@ import java.util.function.Predicate;
  * @Date: 2019/07/18 11:04
  */
 public interface PermissionService extends IService<Permission> {
+    boolean deleteBatchIds(Long[] ids);
     List<Permission> findByRoleId(Long roleId);
     Permission findByPermissionValue(String permissionValue);
 
+    List<Permission> findRootPermissions();
     List<Permission> findAll(Wrapper<Permission> wrapper);
 }

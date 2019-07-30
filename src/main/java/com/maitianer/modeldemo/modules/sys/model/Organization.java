@@ -2,7 +2,7 @@ package com.maitianer.modeldemo.modules.sys.model;
 
 import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.baomidou.mybatisplus.annotation.TableName;
-import com.maitianer.modeldemo.modules.base.BaseModel;
+import com.maitianer.modeldemo.modules.common.model.BaseModel;
 
 
 /**

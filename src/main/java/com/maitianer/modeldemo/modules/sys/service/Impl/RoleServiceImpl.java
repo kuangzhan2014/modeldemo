@@ -7,7 +7,7 @@ import com.baomidou.mybatisplus.core.injector.methods.DeleteById;
 import com.baomidou.mybatisplus.core.toolkit.Wrappers;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
-import com.maitianer.modeldemo.modules.DomainConstants;
+import com.maitianer.modeldemo.core.DomainConstants;
 import com.maitianer.modeldemo.modules.sys.mapper.MemberMapper;
 import com.maitianer.modeldemo.modules.sys.mapper.MemberRoleMapper;
 import com.maitianer.modeldemo.modules.sys.mapper.RoleMapper;

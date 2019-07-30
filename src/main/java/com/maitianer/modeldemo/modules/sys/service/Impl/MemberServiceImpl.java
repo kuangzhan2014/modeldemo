@@ -17,6 +17,7 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.Date;
 import java.util.List;
 
@@ -39,6 +40,18 @@ public class MemberServiceImpl extends ServiceImpl<MemberMapper,Member> implemen
     @Override
     public Member findByMemberName(String memberName) {
         return getOne(new QueryWrapper<Member>().eq("member_name",memberName));
+    }
+
+    @Override
+    public boolean deleteBatchIds(Long[] ids) {
+        Assert.notNull(ids);
+        for (Long id : ids) {
+            if (DomainConstants.DEFAULT_SYSTEM_ADMIN_ID == id) {
+                continue;
+            }
+            memberRoleMapper.delete(new QueryWrapper<MemberRole>().eq("member_id", id));
+        }
+        return super.removeByIds(Arrays.asList(ids));
     }
 
     @Override
