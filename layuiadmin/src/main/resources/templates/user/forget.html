@@ -1,0 +1,250 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="utf-8">
+    <title>忘记密码</title>
+  <meta name="renderer" content="webkit">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0, maximum-scale=1.0, user-scalable=0">
+    <link rel="stylesheet" th:href="@{/static/layuiadmin/layui/css/layui.css}" media="all">
+    <link rel="stylesheet" th:href="@{/static/layuiadmin/style/admin.css}" media="all">
+    <link rel="stylesheet" th:href="@{/static/layuiadmin/style/login.css}" media="all">
+</head>
+
+  <div class="layadmin-user-login layadmin-user-display-show" id="LAY-user-login" style="display: none;">
+    <div class="layadmin-user-login-main">
+      <div class="layadmin-user-login-box layadmin-user-login-header">
+          <h2>后台管理模板系统</h2>
+          <p>密码找回</p>
+      </div>
+      <div class="layadmin-user-login-box layadmin-user-login-body layui-form">
+      
+        <script type="text/html" template>
+          {{# if(layui.router().search.type === 'resetpass'){ }}
+            <div class="layui-form-item">
+              <label class="layadmin-user-login-icon layui-icon layui-icon-password" for="LAY-user-login-password"></label>
+              <input type="password" name="password" id="LAY-user-login-password" lay-verify="pass" placeholder="新密码" class="layui-input">
+            </div>
+            <div class="layui-form-item">
+              <label class="layadmin-user-login-icon layui-icon layui-icon-password" for="LAY-user-login-repass"></label>
+              <input type="password" name="repass" id="LAY-user-login-repass" lay-verify="required" placeholder="确认密码" class="layui-input">
+            </div>
+            <div class="layui-form-item">
+              <button class="layui-btn layui-btn-fluid" lay-submit lay-filter="LAY-user-forget-resetpass">重置新密码</button>
+            </div>
+          {{# } else { }}
+            <div class="layui-form-item">
+              <label class="layadmin-user-login-icon layui-icon layui-icon-cellphone" for="LAY-user-login-cellphone"></label>
+              <input type="text" name="cellphone" id="LAY-user-login-cellphone" lay-verify="phone" placeholder="请输入注册时的手机号" class="layui-input">
+            </div>
+            <div class="layui-form-item">
+              <div class="layui-row">
+                <div class="layui-col-xs7">
+                  <label class="layadmin-user-login-icon layui-icon layui-icon-vercode" for="LAY-user-login-vercode"></label>
+                  <input type="text" name="vercode" id="LAY-user-login-vercode" lay-verify="required" placeholder="图形验证码" class="layui-input">
+                </div>
+                <div class="layui-col-xs5">
+                  <div style="margin-left: 10px;">
+                    <img src="https://www.oschina.net/action/user/captcha" class="layadmin-user-login-codeimg" id="LAY-user-get-vercode">
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="layui-form-item">
+              <div class="layui-row">
+                <div class="layui-col-xs7">
+                  <label class="layadmin-user-login-icon layui-icon layui-icon-vercode" for="LAY-user-login-smscode"></label>
+                  <input type="text" name="vercode" id="LAY-user-login-smscode" lay-verify="required" placeholder="短信验证码" class="layui-input">
+                </div>
+                <div class="layui-col-xs5">
+                  <div style="margin-left: 10px;">
+                    <button type="button" class="layui-btn layui-btn-primary layui-btn-fluid" id="LAY-user-getsmscode">获取验证码</button>
+                      <button type="button" name="countDown" style="display: none;"
+                              class="layui-btn layui-btn-primary layui-btn-fluid">60秒后重获
+                      </button>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="layui-form-item">
+              <button class="layui-btn layui-btn-fluid" lay-submit lay-filter="LAY-user-forget-submit">找回密码</button>
+            </div>
+            <div class="layui-trans layui-form-item layadmin-user-login-other">
+              <!--<label>社交账号注册</label>-->
+              <!--<a href="javascript:;"><i class="layui-icon layui-icon-login-qq"></i></a>-->
+              <!--<a href="javascript:;"><i class="layui-icon layui-icon-login-wechat"></i></a>-->
+              <!--<a href="javascript:;"><i class="layui-icon layui-icon-login-weibo"></i></a>-->
+
+              <a href="login" class="layadmin-user-jump-change layadmin-link layui-hide-xs">用已有帐号登入</a>
+              <a href="login" class="layadmin-user-jump-change layadmin-link layui-hide-sm layui-show-xs-inline-block">登入</a>
+            </div>
+          {{# } }}
+        </script>
+   
+      </div>
+    </div>
+    
+    <div class="layui-trans layadmin-user-login-footer">
+
+        <!--<p>© 2018 <a href="http://www.layui.com/" target="_blank">layui.com</a></p>-->
+        <!--<p>-->
+        <!--<span><a href="http://www.layui.com/admin/#get" target="_blank">获取授权</a></span>-->
+        <!--<span><a href="http://www.layui.com/admin/pro/" target="_blank">在线演示</a></span>-->
+        <!--<span><a href="http://www.layui.com/admin/" target="_blank">前往官网</a></span>-->
+        <!--</p>-->
+    </div>
+
+  </div>
+
+<script type="text/javascript" th:src="@{/static/layuiadmin/layui/layui.js}"></script>
+<!--<script type="text/javascript" th:src="@{/static/js/pickers.js}"></script>-->
+<script type="text/javascript" th:inline="javascript">
+    layui.config({
+        base: '/static/layuiadmin/' //静态资源所在路径
+    }).extend({
+        index: 'lib/index' //主入口模块
+    }).use(['index', 'user'], function () {
+        var $ = layui.$
+            , setter = layui.setter
+            , admin = layui.admin
+            , form = layui.form
+            , layer = layui.layer
+            , router = layui.router()
+            , search = router.search
+        // , pickers = new layui.pickers();
+
+        form.render();
+
+        // form.verify({
+        //     password: [
+        //         /^[\S]{6,12}$/
+        //         , '密码必须6到12位，且不能出现空格'
+        //     ]
+        //     , repassword: function (value, item) { //value：表单的值、item：表单的DOM对象
+        //         var password = $('input[name="password"]').val();
+        //         if (password != value) {
+        //             return '两次密码输入不一致';
+        //         }
+        //     }
+        // });
+
+        form.on('submit(register)', function (data) {
+            var field = data.field;
+            if (field.cellphone == null || field.cellphone.length <= 0) {
+                layer.tips('手机号不能为空', '#LAY-user-login-cellphone', {
+                    time: 0
+                });
+                return false;
+            } else if (!new RegExp("^1\\d{10}$").test(field.cellphone)) {
+                layer.tips('请输入正确的手机号', '#LAY-user-login-cellphone', {
+                    time: 0
+                });
+                return false;
+            } else if (field.captcha == null || field.captcha.length <= 0) {
+                layer.tips('验证码不能为空', '#LAY-user-login-smscode', {
+                    time: 0
+                });
+                return false;
+            }
+            register(data.field);
+            return false; //阻止表单跳转。如果需要表单跳转，去掉这段即可。
+        });
+
+        $('input').on('keyup', function () {
+            layer.closeAll();
+        })
+
+        function register(data) {
+            // 确定
+            $.ajax({
+                url: "/sys/member/forget",
+                type: "POST",
+                data: data,
+                dataType: "json",
+                cache: false,
+                success: function (result) {
+                    if (result.code == 0) {
+                        $(location).attr('href', '/sys/resetPassword?id=' + result.data);
+                    } else {
+                        layer.msg(result.msg == null ? '操作失败' : result.msg, {
+                            offset: 't',
+                            icon: 2
+                        });
+                        // layer.msg(result.msg == null ? '操作失败' : result.msg);
+                    }
+                }
+            });
+        }
+
+        // pickers.config({
+        //     filterName: 'picker',
+        //     pickers: [{
+        //         id: 'rootOrganizationId',
+        //         dataUrl: '/api/parentOrganizations',
+        //         defaultValue: ''
+        //     }, {
+        //         id: 'organizationId',
+        //         dataUrl: '/api/subOrganizations',
+        //         defaultValue: ''
+        //     }]
+        // }).init();
+
+        // 获取验证码
+        $('button[name="getCaptcha"]').on('click', function () {
+            var cellphone = $('input[name="cellphone"]').val();
+            var pattern = /[0-9]{11}/;
+            if (!pattern.test(cellphone)) {
+                layer.tips('请输入正确的手机号', '#cellphone');
+                return false;
+            } else {
+                $.ajax({
+                    url: "/api/sendSms/sendCaptcha",
+                    type: "POST",
+                    data: {cellphone: cellphone},
+                    dataType: "json",
+                    cache: false,
+                    success: function (result) {
+                        if (result.code == 0) {
+                            layer.msg('发送成功', {
+                                offset: 't',
+                                icon: 1
+                            });
+                            // 倒计时
+                            countDown();
+                        } else { // 发送失败
+                            layer.msg(result.msg == null ? '发送失败' : result.msg, {
+                                offset: 't',
+                                icon: 2
+                            });
+                        }
+                    }
+                });
+            }
+        })
+
+        /**
+         * 倒计时
+         */
+        function countDown() {
+            //显示60s倒计时，隐藏‘获取验证码’
+            var time = 0;
+            //倒计时-打开
+            $('button[name="countDown"]').show();
+            //获取-隐藏
+            $('button[name="getCaptcha"]').hide();
+            timer = setInterval(function () {
+                time = parseInt($('button[name="countDown"]').text().replace(/[^0-9]/ig, ""));
+                time--;
+                $('button[name="countDown"]').html(time + '秒后重获');
+                //60s后停止定时器
+                if (time == 0) {
+                    $('button[name="countDown"]').html('60秒后重获').hide();
+                    $('button[name="getCaptcha"]').show();
+                    clearInterval(timer);
+                }
+            }, 1000)
+        }
+    });
+  </script>
+</body>
+</html>
