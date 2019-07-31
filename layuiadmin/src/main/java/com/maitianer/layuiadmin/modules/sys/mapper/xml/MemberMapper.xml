@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.maitianer.modeldemo.modules.sys.mapper.MemberMapper">
+<mapper namespace="com.maitianer.layuiadmin.modules.sys.mapper.MemberMapper">
    <select id="pageData" resultType="Member">
       select m.*,mr.role_id,r.name role_name,o.name as organization_name from sys_member m
       left join sys_organization o on m.organization_id = o.id

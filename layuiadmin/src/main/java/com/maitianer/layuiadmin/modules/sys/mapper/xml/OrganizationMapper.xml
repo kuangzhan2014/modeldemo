@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.maitianer.modeldemo.modules.sys.mapper.OrganizationMapper">
+<mapper namespace="com.maitianer.layuiadmin.modules.sys.mapper.OrganizationMapper">
     <select id="listData" resultType="Organization">
         select o.*, o2.name parent_name from sys_organization o
         left join sys_organization o2 on o.parent_id = o2.id and o.deleted != 1
