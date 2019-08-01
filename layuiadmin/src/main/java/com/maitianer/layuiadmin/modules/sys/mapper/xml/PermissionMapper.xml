@@ -44,6 +44,7 @@
     </select>
 
     <select id="selectAllWithParent" resultType="Permission" resultMap="BaseResultMap">
+        select
        <include refid="Base_Column_List"/>
         from sys_permission c
         left join sys_permission p on c.parent_id = p.id

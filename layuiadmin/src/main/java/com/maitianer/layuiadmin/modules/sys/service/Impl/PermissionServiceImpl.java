@@ -48,7 +48,7 @@ public class PermissionServiceImpl extends ServiceImpl<PermissionMapper,Permissi
 
     @Override
     public List<Permission> findRootPermissions() {
-        List<Permission> permissions = list(new QueryWrapper<Permission>().isNull("parernt_id"));
+        List<Permission> permissions = list(new QueryWrapper<Permission>().isNull("parent_id"));
         for (Permission permission : permissions) {
             permission.setSubPermissions(list(new QueryWrapper<Permission>().eq("parent_id", permission.getId())));
         }

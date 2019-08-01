@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout.html}">
+<head>
+    <title>个人信息设置</title>
+
+    <script type="text/javascript" th:inline="javascript" layout:fragment="custom-script">
+        $().ready(function() {
+
+            // 表单验证
+            $('#inputForm').validate({
+                rules: {
+                    cellphone: {
+                        phoneCN: true
+                        /*[# th:if="${bean.isNew()}"]*/,remote: '/sys/member/checkCellphone'/*[/]*/
+                    },
+                    email: {
+                        email: true
+                        /*[# th:if="${bean.isNew()}"]*/,remote: '/sys/member/checkEmail'/*[/]*/
+                    }
+                },
+                messages: {
+                    cellphone: {
+                        remote: '该手机号码已存在！'
+                    },
+                    email: {
+                        remote: '该邮箱已存在！'
+                    }
+                }
+            });
+
+        });
+    </script>
+</head>
+<body>
+<div class="layui-fluid" layout:fragment="content">
+    <div class="layui-card">
+        <div class="layui-card-header">个人信息设置</div>
+        <div class="layui-card-body">
+            <form id="inputForm" class="layui-form" action="profile" method="post" th:object="${bean}">
+                <input type="hidden" th:field="*{id}" />
+                <div class="layui-form-item">
+                    <label class="layui-form-label">用户名</label>
+                    <div class="layui-input-inline col-md">
+                        <input type="text" th:field="*{memberName}" class="layui-input" maxlength="200" placeholder="请填写唯一的用户名" readonly="true" />
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">真实姓名</label>
+                    <div class="layui-input-inline col-md">
+                        <input type="text" th:field="*{realName}" class="layui-input" maxlength="200"  placeholder="填写真实姓名方便管理" />
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">手机号码</label>
+                    <div class="layui-input-inline col-md">
+                        <input type="text" th:field="*{cellphone}" class="layui-input" maxlength="200" placeholder="填写手机号码" />
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">电话</label>
+                    <div class="layui-input-inline col-md">
+                        <input type="text" th:field="*{phone}" class="layui-input" maxlength="200" placeholder="填写电话号码" />
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">邮箱</label>
+                    <div class="layui-input-inline col-md">
+                        <input type="text" th:field="*{email}" class="layui-input" maxlength="200" placeholder="填写有邮箱" />
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-input-block">
+                        <button class="layui-btn" lay-submit="">提交</button>
+                        <button type="button" class="layui-btn layui-btn-primary" onclick="parent.closeCurrentTab(); return false;">返回</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+

@@ -99,7 +99,7 @@ mybatis-plus:
 #    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
 
 shiro:
-  loginUrl: /user/login
+  loginUrl: /sys/login
   successUrl: /indexFrame
   unauthorizedUrl: /403
 ## 使用shiro管理会话

@@ -1,10 +1,14 @@
 package com.maitianer.starter.modules.sys.model;
 
 
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableName;
+import com.maitianer.starter.core.DomainConstants;
 import com.maitianer.starter.modules.common.model.BaseModel;
+import com.maitianer.starter.utils.DictUtils;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * @Author: zhou
@@ -13,7 +17,7 @@ import java.util.Date;
 @TableName("sys_member")
 public class Member extends BaseModel<Member> {
    private String memberName;
-    private String encryptedPassword;
+   private String encryptedPassword;
    private String passwordSalt;
    private String cellphone;
    private String phone;
@@ -23,6 +27,12 @@ public class Member extends BaseModel<Member> {
    private Date lastLoginDate;
    private String lastLoginIp;
    private Integer status;
+    @TableField(exist = false)
+    private List<Role> roles;
+
+    public String getStatusLabel() {
+        return DictUtils.getDictLabel(status, DomainConstants.DICT_GROUP_MEMBER_STATUS, DomainConstants.DICT_DEFAULT_LABEL);
+    }
 
     public String getMemberName() {
         return memberName;
@@ -110,5 +120,14 @@ public class Member extends BaseModel<Member> {
 
     public void setStatus(Integer status) {
         this.status = status;
+    }
+
+    public List<Role> getRoles() {
+        return roles;
+    }
+
+    public Member setRoles(List<Role> roles) {
+        this.roles = roles;
+        return this;
     }
 }

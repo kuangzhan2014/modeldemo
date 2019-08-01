@@ -1,5 +1,7 @@
 package com.maitianer.starter.modules.sys.model;
 
+import com.baomidou.mybatisplus.annotation.FieldStrategy;
+import com.baomidou.mybatisplus.annotation.TableField;
 import com.baomidou.mybatisplus.annotation.TableLogic;
 import com.baomidou.mybatisplus.annotation.TableName;
 import com.maitianer.starter.modules.common.model.BaseModel;
@@ -12,7 +14,9 @@ import com.maitianer.starter.modules.common.model.BaseModel;
 @TableName("sys_organization")
 public class Organization extends BaseModel<Organization> {
     private String name;
+    @TableField(strategy = FieldStrategy.IGNORED)
     private Long parentId;
+    @TableField(strategy = FieldStrategy.IGNORED)
     private String parentIds;
     private Integer type;
     private Integer grade;

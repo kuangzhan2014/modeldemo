@@ -15,7 +15,7 @@ import org.springframework.context.annotation.Profile;
  * @Date: 2019/07/03 11:15
  */
 @Configuration
-@MapperScan({"com.maitianer.starter.mapper","com.maitianer.starter.modules.sys.mapper"})
+@MapperScan("com.maitianer.starter.modules.sys.mapper")
 public class MybatisPlusConfig {
     /*
      * 分页插件，自动识别数据库类型

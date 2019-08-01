@@ -30,16 +30,18 @@ public class Permission extends BaseModel<Permission> {
         return parent;
     }
 
-    public void setParent(Permission parent) {
+    public Permission setParent(Permission parent) {
         this.parent = parent;
+        return this;
     }
 
     public List<Permission> getSubPermissions() {
         return subPermissions;
     }
 
-    public void setSubPermissions(List<Permission> subPermissions) {
+    public Permission setSubPermissions(List<Permission> subPermissions) {
         this.subPermissions = subPermissions;
+        return this;
     }
 
     public Long getParentId() {

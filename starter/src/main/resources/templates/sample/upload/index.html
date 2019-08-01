@@ -1,0 +1,182 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout.html}">
+<head>
+    <title>文件上传</title>
+    <style type="text/css">
+        .layui-upload-icon {
+            width: 92px;
+            height: 92px;
+            margin: 0 10px 10px 0;
+        }
+
+        .testbox{
+            position:relative;
+            width: 92px;
+            float: left;
+            padding: 0 15px 0 0;
+        }
+        .mask {
+            position:absolute ;
+            top:0;
+            width: 92px;
+            height: 92px;
+            background:rgba(128,138,135,.8);
+            opacity:0;
+        }
+        .mask img{
+            position:relative;
+            max-height:100%;
+            left:50%;
+            transform:translateX(-50%);
+        }
+        .mask:hover{
+            opacity: 1;
+        }
+    </style>
+
+    <script type="text/javascript">
+        layui.use('upload', function() {
+            var upload = layui.upload;
+            //指定允许上传的文件类型
+            upload.render({
+                elem: '#test-upload-type1'
+                ,url: '/upload/file'
+                ,accept: 'file' //普通文件
+                ,done: function(res){
+                    console.log(res)
+                }
+            });
+
+            var imgindex="";
+            //上传预览图
+            upload.render({
+                elem: '#previewImagesUploadButton' //绑定元素
+                ,url: '/upload/image' //上传接口
+                ,multiple: true //开启多图上传
+                ,before: function(obb) {
+                    //预读本地文件示例，不支持ie8
+                    obb.preview(function(index, file, result){
+                        index = index.replace("-","");
+                        var html='<div id="'+index+'" class="testbox"><img src="'+result+'" class="layui-upload-icon" /> ' +
+                            '<div class="mask"><img src="/static/image/delete.png" onclick="UPLOAD_IMG_DEL('+index+')"></div>'
+                        $('#previewImagesUpload').append(html) //图片链接（base64）
+                        imgindex=index;
+                    });
+                    layer.msg('上传中...', {
+                        icon: 16
+                        ,shade: 0.01
+                    });
+                }
+
+                ,done: function(res){
+                    //上传完毕解析APK
+                    var previewFile=$('#previewImages').val();
+                    previewFile+= res[0]+"|";
+                    $('#previewImages').val(previewFile);
+                    var html='<input type="hidden" value="'+res[0]+'">';
+                    $('#'+imgindex).append(html);
+                    // $('#appIconDemo').attr('src', "http://localhost:8080/" + fileName);
+                }
+                ,error: function(){
+                    //请求异常回调
+                    layer.closeAll();
+                }
+                ,accept: 'image'
+                ,size: 0
+            });
+
+
+
+            var imgindexByInputStream="";
+            //上传预览图
+            upload.render({
+                elem: '#previewImagesUploadButtonByInputStream' //绑定元素
+                ,url: '/upload/imageByInputStream' //上传接口
+                ,multiple: true //开启多图上传
+                ,before: function(obb) {
+                    //预读本地文件示例，不支持ie8
+                    obb.preview(function(index, file, result){
+                        index = index.replace("-","");
+                        var html='<div id="'+index+'" class="testbox"><img src="'+result+'" class="layui-upload-icon" />' +
+                            '<div class="mask"><img src="/static/image/delete.png" onclick="UPLOAD_IMG_DEL_By_InputStream('+index+')"></div>'
+                        $('#previewImagesUploadByInputStream').append(html) //图片链接（base64）
+                        imgindexByInputStream=index;
+                    });
+                    layer.msg('上传中...', {
+                        icon: 16
+                        ,shade: 0.01
+                    });
+                }
+
+                ,done: function(res){
+                    //上传完毕解析APK
+                    var previewFile=$('#previewImagesByInputStream').val();
+                    previewFile+= res[0]+"|";
+                    $('#previewImagesByInputStream').val(previewFile);
+                    var html='<input type="hidden" value="'+res[0]+'">';
+                    $('#'+imgindexByInputStream).append(html);
+                    // $('#appIconDemo').attr('src', "http://localhost:8080/" + fileName);
+                }
+                ,error: function(){
+                    //请求异常回调
+                    layer.closeAll();
+                }
+                ,accept: 'image'
+                ,size: 0
+            });
+        });
+
+        function UPLOAD_IMG_DEL(divs) {
+            $("#"+divs).remove();
+        }
+
+        function UPLOAD_IMG_DEL_By_InputStream(divs) {
+            $("#"+divs).remove();
+        }
+    </script>
+</head>
+<body>
+<div class="layui-fluid" layout:fragment="content">
+    <div class="layui-card">
+        <div class="layui-card-header">上传演示</div>
+        <div class="layui-card-body">
+            <form class="layui-form">
+                <div class="layui-form-item">
+                    <label class="layui-form-label">文件</label>
+                    <div class="layui-input-inline col-md">
+                        <button type="button" class="layui-btn" id="test-upload-type1"><i class="layui-icon layui-icon-upload"></i>上传文件</button>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">以流的形式上传图片</label>
+                    <div class="layui-input-inline col-md">
+                        <input type="hidden" id="previewImagesByInputStream">
+                        <button type="button" class="layui-btn" id="previewImagesUploadButtonByInputStream">
+                            <i class="layui-icon">&#xe67c;</i>上传预览图
+                        </button>
+                    </div>
+                    <div class="layui-input-inline" style="width: 70%" id="previewImagesUploadByInputStream">
+                    </div>
+                </div>
+
+
+                <div class="layui-form-item">
+                    <label class="layui-form-label">预览图</label>
+                    <div class="layui-input-inline col-md">
+                        <input type="hidden" id="previewImages">
+                        <button type="button" class="layui-btn" id="previewImagesUploadButton">
+                            <i class="layui-icon">&#xe67c;</i>上传预览图
+                        </button>
+                    </div>
+                    <div class="layui-input-inline" style="width: 70%" id="previewImagesUpload">
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+</body>
+</html>
+

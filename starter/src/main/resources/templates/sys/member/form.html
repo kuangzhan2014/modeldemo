@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout.html}">
+<head>
+    <title th:text="${bean.isNew()} ? '添加' : '编辑' + '系统用户'">系统用户</title>
+
+    <script type="text/javascript" layout:fragment="custom-script" th:inline="javascript">
+        $().ready(function() {
+
+            // 表单验证
+            $('#inputForm').validate({
+                rules: {
+                    memberName: {
+                        required: true,
+                        minlength: 5
+                        /*[# th:if="${bean.isNew()}"]*/,remote: '/sys/member/checkMemberName'/*[/]*/
+                    },
+                    password: {required: [[${bean.isNew()}]], minlength: 6},
+                    passwordConfirmation: {required: [[${bean.isNew()}]], minlength: 6, equalTo: '#password'},
+                    cellphone: {
+                        phoneCN: true
+                        /*[# th:if="${bean.isNew()}"]*/,remote: '/sys/member/checkCellphone'/*[/]*/
+                    },
+                    email: {
+                        email: true
+                        /*[# th:if="${bean.isNew()}"]*/,remote: '/sys/member/checkEmail'/*[/]*/
+                    }
+                },
+                messages: {
+                    memberName: {
+                        remote: '该用户名已存在！'
+                    },
+                    cellphone: {
+                        remote: '该手机号码已存在！'
+                    },
+                    email: {
+                        remote: '该邮箱已存在！'
+                    }
+                }
+            });
+        });
+    </script>
+</head>
+<body>
+<div class="layui-fluid" layout:fragment="content">
+    <div class="layui-card">
+        <div class="layui-card-header" th:text="${bean.isNew()} ? '添加' : '编辑' + '系统用户'"></div>
+        <div class="layui-card-body">
+            <form id="inputForm" class="layui-form" action="save" method="post" th:object="${bean}">
+                <input type="hidden" th:field="*{id}" />
+                <div class="layui-form-item">
+                    <label class="layui-form-label">用户名</label>
+                    <div class="layui-input-inline col-md">
+                        <input type="text" th:field="*{memberName}" class="layui-input" maxlength="200" placeholder="请填写唯一的用户名" />
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">密码</label>
+                    <div class="layui-input-inline col-md">
+                        <input type="password" id="password" name="password" class="layui-input" maxlength="200" />
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">确认密码</label>
+                    <div class="layui-input-inline col-md">
+
+                        <input type="password" id="passwordConfirmation" name="passwordConfirmation" class="layui-input" maxlength="200" />
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">真实姓名</label>
+                    <div class="layui-input-inline col-md">
+                        <input type="text" th:field="*{realName}" class="layui-input" maxlength="200"  placeholder="填写真实姓名方便管理" />
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">手机号码</label>
+                    <div class="layui-input-inline col-md">
+                        <input type="text" th:field="*{cellphone}" class="layui-input" maxlength="200" placeholder="填写手机号码" />
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">电话</label>
+                    <div class="layui-input-inline col-md">
+                        <input type="text" th:field="*{phone}" class="layui-input" maxlength="200" placeholder="填写电话号码" />
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">邮箱</label>
+                    <div class="layui-input-inline col-md">
+                        <input type="text" th:field="*{email}" class="layui-input" maxlength="200" placeholder="填写有邮箱" />
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">角色</label>
+                    <div class="layui-input-inline col-md">
+                        <select name="roleId" class="layui-input">
+                            <option th:each="role : ${roles}" th:value="${role.id}" th:text="${role.name}" th:selected="${role.id == roleId}"></option>
+                        </select>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <label class="layui-form-label">状态</label>
+                    <div class="layui-input-inline col-md">
+                        <select th:field="*{status}">
+                            <option th:each="item : ${#dicts.getDictList('member_status')}" th:value="${item.code}" th:text="${item.codeLabel}"></option>
+                        </select>
+                    </div>
+                </div>
+                <div class="layui-form-item">
+                    <div class="layui-input-block">
+                        <button class="layui-btn" lay-submit="" lay-filter="demo1">提交</button>
+                        <button type="button" class="layui-btn layui-btn-primary" onclick="history.back(); return false;">返回</button>
+                    </div>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+</body>
+</html>
+

@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org"
+      xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout" layout:decorate="~{layout.html}">
+<head>
+    <title>用户列表</title>
+</head>
+<body>
+<div class="layui-fluid" layout:fragment="content">
+    <div class="layui-card">
+        <form id="listForm" class="layui-form layui-card-header layuiadmin-card-header-auto" action="#" method="get">
+            <input type="hidden" id="pageNumber" name="current" th:value="${page.current}" />
+            <input type="hidden" id="pageSize" name="size" th:value="${page.size}" />
+
+            <div id="controlBar">
+                <div class="layui-btn-group">
+                    <a class="layui-btn" href="add">
+                        <i class="layui-icon layuiadmin-button-btn">&#xe61f;</i>添加用户
+                    </a>
+                    <button id="deleteButton" class="layui-btn">
+                        <i class="layui-icon layui-icon-delete layuiadmin-button-btn"></i>
+                    </button>
+                </div>
+
+                <div id="searchBar" class="layui-inline" style="float:right">
+                    <div class="layui-input-inline" style="width: 100px;">
+                        <select id="searchProperty" name="searchProperty">
+                            <option value="">搜索条件</option>
+                            <option value="member_name" th:selected="${searchProperty == 'member_name'}">用户名</option>
+                            <option value="cellphone" th:selected="${searchProperty == 'cellphone'}">手机号码</option>
+                            <option value="email" th:selected="${searchProperty == 'email'}">邮箱</option>
+                        </select>
+                    </div>
+                    <div class="layui-input-inline">
+                        <input type="text" id="searchValue" name="searchValue" th:value="${searchValue}" autocomplete="off" class="layui-input">
+                    </div>
+                    <div class="layui-input-inline">
+                        <button class="layui-btn" value="搜索" type="submit">搜索</button>
+                    </div>
+                    <div class="layui-input-inline">
+                        <button id="resetSearchButton" class="layui-btn layui-btn-primary" value="重置" type="button">重置</button>
+                    </div>
+                </div>
+            </div>
+        </form>
+
+        <div class="layui-card-body layui-form">
+            <table id="listTable" class="layui-table" lay-skin="line" >
+                <colgroup>
+                    <col width="50">
+                    <col width="150">
+                    <col width="200">
+                    <col>
+                    <col>
+                    <col>
+                    <col>
+                    <col width="140">
+                </colgroup>
+                <thead>
+                <tr>
+                    <th align="center"><input id="selectAll" lay-filter="selectAll" type="checkbox" lay-skin="primary"></th>
+                    <th>用户名</th>
+                    <th>手机号码</th>
+                    <th>邮箱</th>
+                    <th>真实姓名</th>
+                    <th>角色</th>
+                    <th>状态</th>
+                    <th>操作</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr th:each="member : ${page.records}">
+                    <td><input type="checkbox" name="ids" lay-filter="ids" lay-skin="primary" th:value="${member.id}"></td>
+                    <td th:text="${member.memberName}"></td>
+                    <td th:text="${member.cellphone}"></td>
+                    <td th:text="${member.email}"></td>
+                    <td th:text="${member.realName}"></td>
+                    <td><span th:each="role : ${member.roles}" th:text="${role.name}"></span> </td>
+                    <td th:text="${member.statusLabel}">
+                    </td>
+                    <td>
+                        <a class="layui-btn layui-btn-xs layui-btn-warm" th:href="@{/sys/member/edit(id=${member.id})}">编辑</a>
+                        <a class="layui-btn layui-btn-xs layui-btn-danger" href="#">删除</a>
+                    </td>
+                </tr>
+
+                </tbody>
+            </table>
+
+            <div id="pagination">
+            </div>
+        </div>
+    </div>
+</div>
+
+<script type="text/javascript" layout:fragment="custom-script" th:inline="javascript">
+    layui.use('table_list', function(){
+        var tableList = layui.table_list;
+
+        tableList.init({
+            curr: '[(${page.current})]',
+            count: '[(${page.total})]',
+            limit: '[(${page.size})]'
+        });
+
+    });
+</script>
+</body>
+</html>
+
+
+
