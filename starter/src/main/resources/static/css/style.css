@@ -1,0 +1,9 @@
+@charset "utf-8";
+
+#inputForm .layui-input-inline.col-md {
+    width: 320px;
+}
+
+.validation-error {
+    color:#FF5722;
+}
