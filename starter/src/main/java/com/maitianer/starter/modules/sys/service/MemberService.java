@@ -1,9 +1,12 @@
 package com.maitianer.starter.modules.sys.service;
 
+import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.extension.service.IService;
 import com.maitianer.starter.modules.sys.model.Member;
 
 import com.maitianer.starter.modules.sys.model.dto.MemberDTO;
+import com.maitianer.starter.modules.sys.model.vo.MemberVO;
+
 import java.util.List;
 
 /**
@@ -62,15 +65,35 @@ public interface MemberService extends IService<Member> {
 
     Member getData(Long id);
 
- /**
-  * 用户审核
-  *
-  * @param memberDTO
-  * @return
-  */
- boolean check(MemberDTO memberDTO);
+    /**
+     * 功能描述: 用户审核
+     * @Param: [memberDTO]
+     * @Return: boolean
+     */
+    boolean check(MemberDTO memberDTO);
 
     boolean deleteBatchIds(Long[] ids);
 
- void logout();
+    /**
+     * 功能描述: 查询用户列表
+     * @Param: [memberVO]
+     * @Return: java.util.List<com.maitianer.starter.modules.sys.model.Member>
+     */
+    List<Member> listData(MemberVO memberVO);
+    /**
+     * 功能描述: 查询用户列表
+     * @Param: [queryWrapper]
+     * @Return: java.util.List<com.maitianer.starter.modules.sys.model.Member>
+     */
+    List<Member> listData(Wrapper<Member> queryWrapper);
+
+    /**
+     * 功能描述: 查找6个月没登录的用户
+     * @Param: []
+     * @Return: java.util.List<com.maitianer.starter.modules.sys.model.Member>
+     */
+    List<Member> listTimeoutData();
+
+
+    void logout();
 }

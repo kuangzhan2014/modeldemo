@@ -3,8 +3,6 @@ package com.maitianer.starter.modules.sys.controller;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.metadata.IPage;
 import com.baomidou.mybatisplus.extension.plugins.pagination.Page;
-import com.maitianer.common.utils.lang.StringUtils;
-import com.maitianer.common.web.Message;
 import com.maitianer.starter.core.security.CurrentMember;
 import com.maitianer.starter.modules.common.controller.BaseController;
 import com.maitianer.starter.modules.sys.model.Member;
@@ -12,6 +10,8 @@ import com.maitianer.starter.modules.sys.model.Role;
 import com.maitianer.starter.modules.sys.service.EncryptService;
 import com.maitianer.starter.modules.sys.service.MemberService;
 import com.maitianer.starter.modules.sys.service.RoleService;
+import com.maitianer.common.utils.lang.StringUtils;
+import com.maitianer.common.web.Message;
 import com.maitianer.starter.utils.MemberUtils;
 import org.apache.shiro.authz.annotation.RequiresPermissions;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -24,7 +24,6 @@ import java.util.List;
 
 /**
  * Date: 2017/8/24 下午10:39
- *
  * @author cosmo2097
  */
 @Controller("sysMemberController")
@@ -136,14 +135,13 @@ public class MemberController extends BaseController {
                 return ERROR_VIEW;
             }
             memberService.createMember(member, password, roleId);
-        } else {
+        }else {
             if (StringUtils.isNotBlank(password)) {
                 if (!password.equals(passwordConfirmation)) {
                     addFlashMessage(redirectAttributes, Message.error("确认密码不匹配！"));
                     return ERROR_VIEW;
                 }
             }
-
             memberService.updateMember(member, password, roleId);
         }
         addFlashMessage(redirectAttributes, SUCCESS_MESSAGE);

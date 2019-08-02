@@ -1,13 +1,17 @@
 package com.maitianer.starter.modules.sys.service.Impl;
 
+import com.baomidou.mybatisplus.core.conditions.Wrapper;
 import com.baomidou.mybatisplus.core.conditions.query.QueryWrapper;
 import com.baomidou.mybatisplus.core.conditions.update.UpdateWrapper;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import com.baomidou.mybatisplus.extension.service.impl.ServiceImpl;
+import com.maitianer.common.utils.lang.DateUtils;
 import com.maitianer.starter.core.DomainConstants;
 import com.maitianer.starter.modules.sys.mapper.MemberMapper;
 import com.maitianer.starter.modules.sys.mapper.MemberRoleMapper;
 import com.maitianer.starter.modules.sys.model.*;
 import com.maitianer.starter.modules.sys.model.dto.MemberDTO;
+import com.maitianer.starter.modules.sys.model.vo.MemberVO;
 import com.maitianer.starter.modules.sys.service.*;
 import com.maitianer.common.utils.StringUtils;
 import org.apache.shiro.SecurityUtils;
@@ -16,10 +20,7 @@ import org.apache.shiro.util.Assert;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Date;
-import java.util.List;
+import java.util.*;
 
 /**
  * @Author: zhou
@@ -130,7 +131,7 @@ public class MemberServiceImpl extends ServiceImpl<MemberMapper,Member> implemen
 
     @Override
     public Member getData(Long id) {
-        return baseMapper.getData(new QueryWrapper<Member>().eq("m.id", "id"));
+        return baseMapper.getData(new QueryWrapper<Member>().eq("m.id", id));
     }
 
     @Override
@@ -146,5 +147,23 @@ public class MemberServiceImpl extends ServiceImpl<MemberMapper,Member> implemen
                 .orderByDesc("create_date"));
         loginLogService.update(new LoginLog(), new UpdateWrapper<LoginLog>().eq("id", loginLog.getId())
                 .set("logout_date", new Date()));
+    }
+
+
+    @Override
+    public List<Member> listData(MemberVO memberVO) {
+        return null;
+    }
+
+    @Override
+    public List<Member> listData(Wrapper<Member> queryWrapper) {
+        return baseMapper.listData(queryWrapper);
+    }
+
+    @Override
+    public List<Member> listTimeoutData() {
+        QueryWrapper<Member> wrapper = new QueryWrapper<>();
+        wrapper.le("last_login_date", DateUtils.getDate("yyyy-MM-dd HH:mm:ss", -6, Calendar.MONTH));
+        return baseMapper.selectList(wrapper);
     }
 }
