@@ -7,6 +7,7 @@ import com.maitianer.starter.modules.sys.model.Member;
 import com.maitianer.starter.modules.sys.model.dto.MemberDTO;
 import com.maitianer.starter.modules.sys.model.vo.MemberVO;
 
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -94,6 +95,19 @@ public interface MemberService extends IService<Member> {
      */
     List<Member> listTimeoutData();
 
+    /**
+     * 功能描述: 登录日志
+     * @Param: [useId, ip, loginDate]
+     * @Return: void
+     */
+    void recordLoginLog(Long memberId, String ip, Date loginDate);
 
     void logout();
+ /**
+  * 根据用户信息（用户名或手机号）查找用户
+  *
+  * @param info
+  * @return
+  */
+   Member findByMemberInfo(String info);
 }

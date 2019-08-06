@@ -65,7 +65,6 @@ spring:
       content-type: text/html
     cache: false
 
-
 # Mybatis-Plus
 mybatis-plus:
   # 配置mapper的扫描，找到所有的mapper.xml映射文件
@@ -119,3 +118,12 @@ shiro:
 #    session:
 #      timeout: 1m
 
+# 短信发送
+sms:
+  apiId: tgpt
+  name: tgpt
+  pwd: tgpt123!@#
+  host: 111.1.127.246
+  smType: 0
+  smId: 10
+  dbName: mas

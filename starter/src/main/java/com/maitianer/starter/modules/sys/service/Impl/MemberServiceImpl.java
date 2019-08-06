@@ -166,4 +166,18 @@ public class MemberServiceImpl extends ServiceImpl<MemberMapper,Member> implemen
         wrapper.le("last_login_date", DateUtils.getDate("yyyy-MM-dd HH:mm:ss", -6, Calendar.MONTH));
         return baseMapper.selectList(wrapper);
     }
+
+    @Override
+    public void recordLoginLog(Long memberId, String ip, Date loginDate) {
+       LoginLog loginLog=new LoginLog();
+       loginLog.setMemberId(memberId);
+       loginLog.setLoginIp(ip);
+       loginLog.setLoginDate(loginDate);
+       loginLogService.save(loginLog);
+    }
+
+    @Override
+    public Member findByMemberInfo(String info) {
+        return getOne(new QueryWrapper<Member>().and(w->w.eq("member_name",info).or().eq("cellphone",info)));
+    }
 }

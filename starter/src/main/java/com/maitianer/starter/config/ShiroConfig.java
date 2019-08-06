@@ -39,7 +39,7 @@ public class ShiroConfig {
         return chainDefinition;
     }
 
-    @Bean
+    @Bean("authorizer")
     public Realm realm() {
         return new MemberRealm();
     }
