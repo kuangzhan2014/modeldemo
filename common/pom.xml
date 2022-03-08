@@ -28,7 +28,7 @@
         <commons-beanutils.version>1.9.1</commons-beanutils.version>
         <slf4j.version>1.7.25</slf4j.version>
         <spring.version>5.0.9.RELEASE</spring.version>
-        <poi.version>4.0.0</poi.version>
+        <poi.version>5.2.1</poi.version>
     </properties>
 
     <dependencies>
